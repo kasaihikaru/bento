@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- ログインテスト用仮置きボタン -->
+  <% if user_signed_in? %>
+    <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+  <% end %>
 
 <%= yield %>
 
