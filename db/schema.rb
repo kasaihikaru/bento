@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218084610) do
+ActiveRecord::Schema.define(version: 20170218090749) do
 
   create_table "sentences", force: :cascade do |t|
     t.text     "ja",                   limit: 65535
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20170218084610) do
     t.integer  "user_id",              limit: 4
     t.boolean  "secret"
     t.integer  "original_sentence_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "words", force: :cascade do |t|
+    t.text     "ja",          limit: 65535
+    t.text     "en",          limit: 65535
+    t.integer  "sentence_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
