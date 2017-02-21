@@ -1,3 +1,47 @@
 // Place all the styles related to the sentences controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// メニュー
+.menu {
+  background-color: #7F7F7F;
+  height: 400px;
+  width: 200px;
+  float: left;
+}
+
+.menu .btn{
+  display: inline-block;
+  width: 120px;
+  line-height: 40px;
+  background: white;
+  text-align: center;
+  color: black;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+
+
+
+// メイン
+.main {
+  background-color: #B3B3B3;
+  float: left;
+}
+
+.post{
+  background-color: #FFE0B7;
+  padding: 10px;
+}
+
+.sentence-ja, .sentence-en{
+  float: left;
+  padding: 10px;
+  text-decoration: underline;
+}
+
+.word-en, .word-ja{
+  float: left;
+  padding: 10px;
+}

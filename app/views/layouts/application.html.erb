@@ -4,29 +4,46 @@
     <meta charset="utf8">
     <meta name="description" content="短文・単語をみんなで共有しながら学ぶ英語学習サイトです。">
     <title>BENTO English</title>
+<!--
+    ファビコンの設定
+    <link rel="icon" href="">
+ -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header class="header">
-      <div class="nav-bar">
-        <a href="/">BENTO</a>
-        <a href="/">About</a>
-        <% if user_signed_in? %>
-          <a href="">MyPage</a>
-        <% else %>
-            <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-        <% end %>
+    <header>
+      <div class="header-container">
+        <div class="clearfix">
+          <div class="header-left">
+            <h1><a class="btn" href="/sentences">BENTO</a></h1>
+          </div>
+          <div class="header-right">
+            <div class="clearfix">
+              <ul><h1>
+                <li><a class="btn" href="/abouts">About</a></li>
+                <% if user_signed_in? %>
+                  <li><a class="btn" href="/users/:id">MyPage</a></li>
+                <% else %>
+                    <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+                    <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+                <% end %>
+              </h1></ul>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
+
+    <div class="contents">
     <%= yield %>
+    </div>
 
     <footer>
       <p>
-        Copyright BENTO 2017.
+        Copyright(C) BENTO ALL RIGHT RESERVED
       </p>
     </footer>
   </body>
