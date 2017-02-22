@@ -12,43 +12,34 @@
  *
  *= require_tree .
  *= require_self
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
  */
 
-/*リセットCSS*/
-body {
-  background-color: #f0f0f0;
-  font-size: 14px;
-  color: #333;
-  margin: 0 auto;
-}
-h1,h2,h3,h4,h5,h6,p {
-  padding: 10px 0;
-  margin: 0;
-}
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 
 /*大枠指定*/
 header {
-  background-color: blue;
+  background-color: orange;
 }
 
 .contents {
-  background-color: #191919;
+  margin-top: 100px;
 }
 
 footer {
-  height: 40px;
+  height: 20px;
   background-color: red;
 }
 
-/*cleafix*/
+
 .clearfix:after {
   content: "";
   clear: both;
   display: block;
 }
+
 
 
 /*common*/
@@ -61,43 +52,56 @@ a {
 
 /*header-container*/
 .header-container{
-  background-color: #7173FF;
+
 }
 
-.header-container .btn{
-  display: inline-block;
+
+
+/*navbar-header*/
+.header-container .navbar-header{
+  margin-left: 60px;
+}
+
+.navbar-brand{
+  background: url("logo.png") no-repeat left center;
+  background-size: contain;
+  height: 50px;
   width: 200px;
-  line-height: 50px;
-  background: white;
+}
+
+
+
+/*navbar-nav*/
+.header-container .navbar-nav {
+}
+
+.rightnav-for-center{
+  margin: auto;
+}
+
+.navbar-right{
+  padding-right: 40px;
+}
+
+
+.header-container .navbar-nav li{
+  display: inline-block;
   text-align: center;
-  color: black;
   border-radius: 5px;
+  width: 200px;
+  line-height: 90px;
+  background: orange;
+  font-size: 17px;
+}
+
+.header-container .navbar-nav li a{
+  color: black;
 }
 
 
-/*header-left*/
-.header-left{
-  background-color: #000080;
-  float: left;
-}
-
-.header-left h1{
-  font-size: 50px;
-}
-
-.header-left .btn{
-  width: 300px;
-}
-
-
-/*header-right*/
-.header-right {
-  background-color: #0080FF;
-  float: right;
-}
-
-.header-right ul li{
-  float: left;
-  list-style-type: none;
-  margin: 10px;
+/*footer*/
+footer p{
+  font-size: 10px;
+  text-align: center;
+  line-height: 20px;
 }
