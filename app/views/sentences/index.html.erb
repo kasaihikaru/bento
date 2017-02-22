@@ -1,100 +1,114 @@
 <div class="container index-content">
   <div class="row">
     <div class="menu col-md-12 col-lg-2">
-      <div class="sort-menu">
-        <ul>
-          <li class="btn">並び替え</li>
-        </ul>
+      <div class="wrapper">
+        <div class="sort-menu btn-group">
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">並び替え<span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="">新着順</a></li>
+            <li><a href="">お気に入り順</a></li>
+          </ul>
+        </div>
       </div>
       <div class="search-menu">
         <ul>
-          <li><input placeholder="文章を検索" type="text" value=""></input></li>
-          <li><input placeholder="ユーザーを検索" type="text" value=""></input></li>
-          <li><input placeholder="タグを検索" type="text" value=""></input></li>
+          <li><input placeholder="文章を検索" type="text" value=""></input><button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></li>
+          <li><input placeholder="ユーザーを検索" type="text" value=""></input><button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></li>
+          <li><input placeholder="タグを検索" type="text" value=""></input><button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></li>
         </ul>
       </div>
     </div>
 
+
     <div class="main col-md-12 col-lg-10">
       <div class="post">
-        <p class="user">
-          Aさんの投稿
-        </p>
-        <div class="post-part" style="padding:20px 0">
-          <table class="table sentence-table">
-            <thead>
-              <tr><th>日本語</th><th>英語</th></tr>
-            </thead>
-            <tbody>
-              <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="post-part" style="padding:20px 0">
-          <table class="table words-table">
-            <thead>
-              <tr><th>日本語</th><th>英語</th></tr>
-            </thead>
-            <tbody>
-              <tr><th>これ</th><th>this</th></tr>
-              <tr><th>ペン</th><th>pen</th></tr>
-              <tr><th>〜です</th><th>is</th></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="post">
-        <p class="user">
-          Aさんの投稿
-        </p>
-        <div class="post-part" style="padding:20px 0">
-          <table class="table sentence-table">
-            <thead>
-              <tr><th>日本語</th><th>英語</th></tr>
-            </thead>
-            <tbody>
-              <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="post-part" style="padding:20px 0">
-          <table class="table words-table">
-            <thead>
-              <tr><th>日本語</th><th>英語</th></tr>
-            </thead>
-            <tbody>
-              <tr><th>これ</th><th>this</th></tr>
-              <tr><th>ペン</th><th>pen</th></tr>
-              <tr><th>〜です</th><th>is</th></tr>
-            </tbody>
-          </table>
+        <div class="post-inner">
+          <div class="user clearfix">
+            <div class="name">Aさんの投稿</div>
+            <div class="time">◯月◯日◯時◯分</div>
+          </div>
+          <div class="post-part">
+            <table class="table table-bordered sentence-table">
+              <thead>
+                <tr class="warning"><th>文（日本語）</th><th>文（英語）</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="post-part">
+            <table class="table table-borderd words-table .table-responsive">
+              <thead>
+                <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>これ</th><th>this</th></tr>
+                <tr><th>ペン</th><th>pen</th></tr>
+                <tr><th>〜です</th><th>is</th></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <div class="post">
-        <p class="user">
-          Aさんの投稿
-        </p>
-        <div class="post-part" style="padding:20px 0">
-          <table class="table sentence-table">
-            <thead>
-              <tr><th>日本語</th><th>英語</th></tr>
-            </thead>
-            <tbody>
-              <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
-            </tbody>
-          </table>
+        <div class="post-inner">
+          <div class="user clearfix">
+            <div class="name">Aさんの投稿</div>
+            <div class="time">◯月◯日◯時◯分</div>
+          </div>
+          <div class="post-part">
+            <table class="table table-bordered sentence-table">
+              <thead>
+                <tr class="warning"><th>文（日本語）</th><th>文（英語）</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="post-part">
+            <table class="table table-borderd words-table .table-responsive">
+              <thead>
+                <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>これ</th><th>this</th></tr>
+                <tr><th>ペン</th><th>pen</th></tr>
+                <tr><th>〜です</th><th>is</th></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="post-part" style="padding:20px 0">
-          <table class="table words-table">
-            <thead>
-              <tr><th>日本語</th><th>英語</th></tr>
-            </thead>
-            <tbody>
-              <tr><th>これ</th><th>this</th></tr>
-              <tr><th>ペン</th><th>pen</th></tr>
-              <tr><th>〜です</th><th>is</th></tr>
-            </tbody>
-          </table>
+      </div>
+      <div class="post">
+        <div class="post-inner">
+          <div class="user clearfix">
+            <div class="name">Aさんの投稿</div>
+            <div class="time">◯月◯日◯時◯分</div>
+          </div>
+          <div class="post-part">
+            <table class="table table-bordered sentence-table">
+              <thead>
+                <tr class="warning"><th>文（日本語）</th><th>文（英語）</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="post-part">
+            <table class="table table-borderd words-table .table-responsive">
+              <thead>
+                <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>これ</th><th>this</th></tr>
+                <tr><th>ペン</th><th>pen</th></tr>
+                <tr><th>〜です</th><th>is</th></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

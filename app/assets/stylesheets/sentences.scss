@@ -14,12 +14,10 @@
 // メニュー
 .menu {
   background-color: #FF8000;
-  height: 500px;
-  // width: 200px;
-  margin-top: 120px;
+  height: 270px;
 }
 
-.menu .btn{
+.menu .sort-menu .btn{
   display: inline-block;
   width: 120px;
   line-height: 30px;
@@ -30,25 +28,70 @@
   margin: 5px;
 }
 
-.menu .search-menu ul{
+.menu ul{
   list-style: none;
+  padding: 0;
 }
 
+.menu ul li input{
+  width: 75%;
+  height: 34px;
+}
+
+.menu .wrapper{
+  text-align: center;
+}
+
+.menu .wrapper .btn{
+  margin: 20px 0 0;
+  display: inline-block;
+}
+
+
+.search-menu{
+  margin-top: 70px;
+}
 
 // メイン
 .main{
 }
 
 
-.main .post{
-  background-color: #E6E6E6;
-  width: 95%;
-  margin: 0 auto;
+.post{
+  background: url("board.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  border-radius: 10px;
+  margin-bottom: 30px
 }
 
-.post .post-part{
+.main .post-inner{
+  width: 90%;
+  margin: 0 auto;
+  padding: 15px 0 15px;
+}
+
+.main .post .user{
+  font-size: 12px;
+  background-color: #E6E6E6;
+}
+
+.main .post .user .name{
+  float: left;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.main .post .user .time{
+  float: right;
+  margin-right: 20px;
+  vertical-align: bottom;
+}
+
+.post .post-inner .post-part{
+  padding: 20px 0 0 0;
 }
 
 .post .sentence-table, .post .words-table {
   width: 100%;
+  background-color: white;
 }
