@@ -22,5 +22,11 @@ class SentencesController < ApplicationController
         :ja, :en,
         words_attributes: [:id, :ja, :en]
       ).merge(user_id: current_user.id)
+
+    0.has_value?(nil)
+      if true
+
+      else
+      end
   end
 end
