@@ -11,3 +11,37 @@
   width: 70%;
   font-size: 10px;
 }
+
+
+
+// 投稿フォーム
+.wrapper-createsentence{
+  text-align: center;
+  background: url("board2.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+.create-newsentence{
+  display: inline-block;
+  margin: 10px;
+  width: 85%
+}
+.create-newsentence label{
+  font-size: 25px;
+  color: white;
+}
+.create-newsentence form{
+  text-align: left;
+}
+.create-newsentence .form-group ul li{
+  list-style: none;
+}
+.create-newsentence .form-group .wrapper{
+  text-align: left;
+}
+.create-newsentence .form-group .panel-body{
+  background-color: transparent;
+  padding: 0;
+}
+// ここまで投稿フォーム

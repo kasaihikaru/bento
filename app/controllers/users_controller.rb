@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
   def show
-    @fold=Fold.new
+    @sentence = Sentence.new
+    @sentence.words.build
   end
 
   def edit
-    
   end
 
 end

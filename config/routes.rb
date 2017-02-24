@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "sentences#index"
 
-  resources :sentences, only: [:index, :edit]
-  resources :users, only: [:show, :edit]
+  resources :sentences, only: [:index, :edit, :create]
+  resources :users, only: [:show, :edit, :create]
   resources :folds, only: [:show, :create]
   resources :abouts, only: [:index]
   # The priority is based upon order of creation: first created -> highest priority.
