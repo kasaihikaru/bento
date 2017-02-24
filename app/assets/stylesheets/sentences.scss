@@ -1,0 +1,113 @@
+// Place all the styles related to the sentences controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+// 全体
+.index-content {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+// メニュー
+.menu {
+  background-color: #FF8000;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.menu .current-sentences h3, .menu .current-sentences p{
+  margin-top: 10px;
+}
+
+
+.menu .sort-menu .btn{
+  border-color: none;
+}
+
+.menu ul{
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li input{
+  width: 75%;
+  height: 34px;
+}
+
+.menu .wrapper{
+  text-align: center;
+}
+.menu .wrapper .btn{
+  display: inline-block;
+}
+
+
+.main .wrapper{
+  text-align: right;
+}
+.main .wrapper .btn{
+  display: inline-block;
+}
+
+.search-menu{
+  margin-top: 70px;
+}
+
+// メイン
+.main{
+}
+
+
+.main .post{
+  background: url("board2.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  border-radius: 10px;
+  margin-bottom: 30px
+}
+
+
+.main .post .user{
+  font-size: 12px;
+  background-color: #E6E6E6;
+}
+
+.main .post .user .name{
+  float: left;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.main .post .user .time{
+  float: right;
+  margin-right: 20px;
+  vertical-align: bottom;
+}
+
+.main .post-inner{
+  width: 90%;
+  margin: 0 auto;
+  padding: 15px 0 15px;
+}
+
+.post .post-inner .post-part{
+  padding: 20px 0 0 0;
+}
+
+
+.post .post-inner .btn-for-words{
+  margin-left: auto;
+  margin-right: 0px;
+}
+
+.post .post-inner .panel-body{
+  padding: 0;
+}
+
+
+.post .sentence-table, .post .words-table {
+  width: 100%;
+  background-color: white;
+}
