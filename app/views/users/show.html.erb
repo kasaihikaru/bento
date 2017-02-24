@@ -33,15 +33,16 @@
       <div class="create-newsentence">
 
 
-        <%= form_for (@sentence) do |f| %>
+        <%= form_for (@sentence) do |s| %>
           <h2>新しい文を作成する</h2>
-          <div class="form-group">
-              <%= f.text_field :ja, placeholder: "日本語", class: "form-control" %>
-              <%= f.text_field :ja, placeholder: "日本語", class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.submit "作成", class: "btn btn-primary withripple" %>
-          </div>
+            <%= s.text_field :ja, placeholder: "文章(日本語)", class: "form-control" %>
+            <%= s.text_field :en, placeholder: "文章(英語)", class: "form-control" %>
+            <%= s.label :words, "単語" %><br />
+            <%= s.fields_for :words do |w| %>
+              <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+              <%= w.text_field :en ,placeholder: "単語(英語)"%>
+            <% end %>
+            <%= s.submit "作成", class: "btn btn-primary withripple" %>
         <% end %>
 
       </div>

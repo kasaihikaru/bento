@@ -55,10 +55,21 @@ a {
 
 .milk{
   background: url("milk.png") no-repeat;
-  background-position: 0% 20%;
+  background-position: 30% 20%;
   background-size: 700px;
   float: right;
 }
+
+
+.navbar .navbar-header .hunbarger-color{
+  background-color: white;
+  border-color: black;
+}
+
+.navbar .navbar-header .hunbarger-color .icon-bar{
+  background-color: black;
+}
+
 
 /*navbar-header*/
 .header-container .navbar-header{
@@ -78,7 +89,7 @@ a {
 .header-container .navbar-nav {
   position: relative; 
   min-height: 55px; 
-  margin: 30px 100px 57px 160px; 
+  margin: 30px 108px 57px 100px; 
   border: 1px solid transparent; 
   background: transparent;
   /*ADD 220,220,220*/ 
