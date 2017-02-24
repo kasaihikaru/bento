@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :sentences, only: [:index, :edit]
   resources :users, only: [:show, :edit]
-  resources :folds, only: [:new, :show]
+  resources :folds, only: [:show, :create]
   resources :abouts, only: [:index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

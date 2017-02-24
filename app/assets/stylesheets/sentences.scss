@@ -14,18 +14,17 @@
 // メニュー
 .menu {
   background-color: #FF8000;
-  height: 270px;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 
+.menu .current-sentences h3, .menu .current-sentences p{
+  margin-top: 10px;
+}
+
+
 .menu .sort-menu .btn{
-  display: inline-block;
-  width: 120px;
-  line-height: 30px;
-  background: white;
-  text-align: center;
-  color: black;
-  border-radius: 5px;
-  margin: 5px;
+  border-color: none;
 }
 
 .menu ul{
@@ -41,12 +40,17 @@
 .menu .wrapper{
   text-align: center;
 }
-
 .menu .wrapper .btn{
-  margin: 20px 0 0;
   display: inline-block;
 }
 
+
+.main .wrapper{
+  text-align: right;
+}
+.main .wrapper .btn{
+  display: inline-block;
+}
 
 .search-menu{
   margin-top: 70px;
@@ -57,18 +61,13 @@
 }
 
 
-.post{
-  background: url("board.jpg") no-repeat center center;
+.main .post{
+  background: url("board2.jpg") no-repeat center center;
   background-size: 100% 100%;
   border-radius: 10px;
   margin-bottom: 30px
 }
 
-.main .post-inner{
-  width: 90%;
-  margin: 0 auto;
-  padding: 15px 0 15px;
-}
 
 .main .post .user{
   font-size: 12px;
@@ -87,9 +86,26 @@
   vertical-align: bottom;
 }
 
+.main .post-inner{
+  width: 90%;
+  margin: 0 auto;
+  padding: 15px 0 15px;
+}
+
 .post .post-inner .post-part{
   padding: 20px 0 0 0;
 }
+
+
+.post .post-inner .btn-for-words{
+  margin-left: auto;
+  margin-right: 0px;
+}
+
+.post .post-inner .panel-body{
+  padding: 0;
+}
+
 
 .post .sentence-table, .post .words-table {
   width: 100%;

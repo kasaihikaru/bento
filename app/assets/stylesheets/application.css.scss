@@ -55,7 +55,6 @@ a {
 
 .milk{
   background: url("milk.png") no-repeat;
-/*  background-size: 500px;*/
   background-position: 0% 20%;
   background-size: 700px;
   float: right;
@@ -115,4 +114,10 @@ footer p{
 
 footer p img{
   height: 100%;
+}
+
+
+.devise-center{
+  margin: 80px auto;
+  width: 153px;
 }
