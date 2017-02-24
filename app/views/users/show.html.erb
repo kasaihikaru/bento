@@ -29,23 +29,158 @@
 
     <div class="main col-md-12 col-lg-10">
 
-
-      <div class="create-newsentence">
-
-
-        <%= form_for (@sentence) do |s| %>
-          <h2>新しい文を作成する</h2>
-            <%= s.text_field :ja, placeholder: "文章(日本語)", class: "form-control" %>
-            <%= s.text_field :en, placeholder: "文章(英語)", class: "form-control" %>
-            <%= s.label :words, "単語" %><br />
-            <%= s.fields_for :words do |w| %>
-              <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-              <%= w.text_field :en ,placeholder: "単語(英語)"%>
-            <% end %>
-            <%= s.submit "作成", class: "btn btn-primary withripple" %>
-        <% end %>
-
+      <div class="wrapper-createsentence">
+        <div class="create-newsentence">
+          <%= form_for (@sentence) do |s| %>
+            <div class="form-group">
+              <%= s.label :words, "新しい文を作成する" %>
+              <%= s.text_area :ja, placeholder: "文章(日本語)", class: "form-control" %>
+              <%= s.text_area :en, placeholder: "文章(英語)", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <ul>
+                <li>
+                  <%= s.fields_for :words do |w| %>
+                    <ul>
+                    <li>
+                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
+                    </li>
+                    </ul>
+                  <% end %>
+                </li>
+                <li>
+                  <%= s.fields_for :words do |w| %>
+                    <ul>
+                    <li>
+                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
+                    </li>
+                    </ul>
+                  <% end %>
+                </li>
+                <li>
+                  <%= s.fields_for :words do |w| %>
+                    <ul>
+                    <li>
+                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
+                    </li>
+                    </ul>
+                  <% end %>
+                </li>
+                <li>
+                  <%= s.fields_for :words do |w| %>
+                    <ul>
+                    <li>
+                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
+                    </li>
+                    </ul>
+                  <% end %>
+                </li>
+                <li>
+                  <%= s.fields_for :words do |w| %>
+                    <ul>
+                    <li>
+                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
+                    </li>
+                    </ul>
+                  <% end %>
+                </li>
+                <li>
+                  <%= s.fields_for :words do |w| %>
+                    <ul>
+                    <li>
+                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
+                    </li>
+                    </ul>
+                  <% end %>
+                </li>
+                <li>
+                  <%= s.fields_for :words do |w| %>
+                    <ul>
+                    <li>
+                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
+                    </li>
+                    </ul>
+                  <% end %>
+                </li>
+                <li>
+                  <%= s.fields_for :words do |w| %>
+                    <ul>
+                    <li>
+                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
+                    </li>
+                    </ul>
+                  <% end %>
+                </li>
+                <li>
+                  <%= s.fields_for :words do |w| %>
+                    <ul>
+                    <li>
+                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
+                    </li>
+                    </ul>
+                  <% end %>
+                </li>
+                <li>
+                  <%= s.fields_for :words do |w| %>
+                    <ul>
+                    <li>
+                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
+                    </li>
+                    </ul>
+                  <% end %>
+                </li>
+                <div class="wrapper">
+                <button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target="#more-words"><i class="glyphicon glyphicon-chevron-down"></i></button>
+                </div>
+                <div id="more-words" class="collapse">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <li>
+                        <%= s.fields_for :words do |w| %>
+                          <ul>
+                          <li>
+                            <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
+                            <%= w.text_field :en ,placeholder: "単語(英語)"%>
+                          </li>
+                          </ul>
+                        <% end %>
+                      </li>
+                    </div>
+                  </div>
+                </div>
+              </ul>
+            </div>
+            <div class="form-group">
+              <%= s.submit "作成", class: "btn btn-primary withripple" %>
+            </div>
+          <% end %>
+        </div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

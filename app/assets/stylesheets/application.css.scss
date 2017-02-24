@@ -60,7 +60,7 @@ a {
   float: right;
 }
 
-
+// ハンバーガーメニューのボタン調整
 .navbar .navbar-header .hunbarger-color{
   background-color: white;
   border-color: black;
@@ -69,6 +69,8 @@ a {
 .navbar .navbar-header .hunbarger-color .icon-bar{
   background-color: black;
 }
+
+
 
 
 /*navbar-header*/
@@ -87,13 +89,11 @@ a {
 
 /*navbar-nav*/
 .header-container .navbar-nav {
-  position: relative; 
-  min-height: 55px; 
-  margin: 30px 108px 57px 100px; 
-  border: 1px solid transparent; 
+  position: relative;
+  min-height: 55px;
+  margin: 30px 108px 57px 100px;
+  border: 1px solid transparent;
   background: transparent;
-  /*ADD 220,220,220*/ 
-  /*background-color: rgba(220,220,220,0.6);*/
 }
 
 
