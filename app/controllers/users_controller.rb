@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-validates :nickname, presence: true
+
 
   def show
     @sentence = Sentence.new
