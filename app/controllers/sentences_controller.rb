@@ -19,8 +19,7 @@ class SentencesController < ApplicationController
 
   private
   def sentence_params
-    params.require(:sentence).permit(
-      :ja, :en).merge(user_id: current_user.id)
+    params.require(:sentence).permit(:ja, :en).merge(user_id: current_user.id)
   end
 
   def word_params
