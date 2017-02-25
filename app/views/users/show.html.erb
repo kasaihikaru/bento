@@ -39,122 +39,42 @@
             </div>
             <div class="form-group">
               <ul>
-                <li>
-                  <%= s.fields_for :words do |w| %>
-                    <ul>
-                    <li>
-                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
-                    </li>
-                    </ul>
-                  <% end %>
-                </li>
-                <li>
-                  <%= s.fields_for :words do |w| %>
-                    <ul>
-                    <li>
-                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
-                    </li>
-                    </ul>
-                  <% end %>
-                </li>
-                <li>
-                  <%= s.fields_for :words do |w| %>
-                    <ul>
-                    <li>
-                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
-                    </li>
-                    </ul>
-                  <% end %>
-                </li>
-                <li>
-                  <%= s.fields_for :words do |w| %>
-                    <ul>
-                    <li>
-                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
-                    </li>
-                    </ul>
-                  <% end %>
-                </li>
-                <li>
-                  <%= s.fields_for :words do |w| %>
-                    <ul>
-                    <li>
-                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
-                    </li>
-                    </ul>
-                  <% end %>
-                </li>
-                <li>
-                  <%= s.fields_for :words do |w| %>
-                    <ul>
-                    <li>
-                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
-                    </li>
-                    </ul>
-                  <% end %>
-                </li>
-                <li>
-                  <%= s.fields_for :words do |w| %>
-                    <ul>
-                    <li>
-                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
-                    </li>
-                    </ul>
-                  <% end %>
-                </li>
-                <li>
-                  <%= s.fields_for :words do |w| %>
-                    <ul>
-                    <li>
-                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
-                    </li>
-                    </ul>
-                  <% end %>
-                </li>
-                <li>
-                  <%= s.fields_for :words do |w| %>
-                    <ul>
-                    <li>
-                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
-                    </li>
-                    </ul>
-                  <% end %>
-                </li>
-                <li>
-                  <%= s.fields_for :words do |w| %>
-                    <ul>
-                    <li>
-                      <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-                      <%= w.text_field :en ,placeholder: "単語(英語)"%>
-                    </li>
-                    </ul>
-                  <% end %>
-                </li>
+                <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                <%= render :partial => "wordform", :locals=>{:s=>s} %>
                 <div class="wrapper">
                 <button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target="#more-words"><i class="glyphicon glyphicon-chevron-down"></i></button>
                 </div>
                 <div id="more-words" class="collapse">
                   <div class="panel panel-default">
                     <div class="panel-body">
-                      <li>
-                        <%= s.fields_for :words do |w| %>
-                          <ul>
-                          <li>
-                            <%= w.text_field :ja ,placeholder: "単語(日本語)"%>
-                            <%= w.text_field :en ,placeholder: "単語(英語)"%>
-                          </li>
-                          </ul>
-                        <% end %>
-                      </li>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
                     </div>
                   </div>
                 </div>

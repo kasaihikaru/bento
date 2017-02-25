@@ -10,23 +10,30 @@ class SentencesController < ApplicationController
 
   def create
     Sentence.create(sentence_params)
-    # if Sentence.create
-    # else
-    # end
+    a = word_params
+    a.each do |x|
+      Word.create("ja"=>x[:ja], "en"=>x[:en], "sentence_id"=>x[:sentence_id])
+    end
     redirect_to user_path(current_user.id)
   end
 
   private
   def sentence_params
-    hen = params.require(:sentence).permit(
-        :ja, :en,
-        words_attributes: [:id, :ja, :en]
-      ).merge(user_id: current_user.id)
+    params.require(:sentence).permit(
+      :ja, :en).merge(user_id: current_user.id)
+  end
 
-    0.has_value?(nil)
-      if true
-
+  def word_params
+    arrayedwords = []
+    id = Sentence.last.id
+    params[:sentence][:words_attributes].each do |key,value|
+      if value["ja"].present? && value["en"].present?
+        value[:sentence_id] = id
+        arrayedwords << value
       else
+        break
       end
+    end
+    return arrayedwords
   end
 end

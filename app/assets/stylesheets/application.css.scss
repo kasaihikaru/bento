@@ -21,10 +21,15 @@
 
 /*大枠指定*/
 header {
+  // ここに指定しても何も効かない。
+}
+.navbar{
+  background-color: white;
 }
 
+
 .contents {
-  padding-top: 130px;
+  padding-top: 142px;
 }
 
 footer {
@@ -92,10 +97,12 @@ a {
   position: relative;
   min-height: 55px;
   margin: 30px 108px 57px 100px;
-  border: 1px solid transparent;
-  background: transparent;
 }
 
+
+.header-container .navbar-right{
+
+}
 
 
 .header-container .navbar-nav li{
