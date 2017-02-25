@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "sentences#index"
 
-  resources :sentences, only: [:index, :edit, :create]
+  resources :sentences, only: [:index, :create]
   resources :users, only: [:show, :edit, :create]
   resources :folds, only: [:show, :create]
   resources :abouts, only: [:index]
