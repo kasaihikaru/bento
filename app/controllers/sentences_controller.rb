@@ -1,7 +1,7 @@
 class SentencesController < ApplicationController
 
   def index
-
+    @sentences = Sentence.order("created_at DESC").limit(20)
   end
 
   def edit
@@ -14,7 +14,7 @@ class SentencesController < ApplicationController
     a.each do |x|
       Word.create("ja"=>x[:ja], "en"=>x[:en], "sentence_id"=>x[:sentence_id])
     end
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id) and return
   end
 
   private

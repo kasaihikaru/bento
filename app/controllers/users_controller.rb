@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+
+
   def show
     @sentence = Sentence.new
     @sentence.words.build

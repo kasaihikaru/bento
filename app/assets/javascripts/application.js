@@ -15,3 +15,16 @@
 //= require bootstrap-sprockets
 // = require turbolinks
 //= require_tree .
+
+
+// スムーズスクロールのためのjquery
+// $(function(){
+// var topBtn=$('#pageTop');
+
+// topBtn.click(function(){
+//   $('body,html').animate({
+//   scrollTop: 0},500);
+//   return false;
+// });
+
+// });

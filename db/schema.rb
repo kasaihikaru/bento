@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220061250) do
+ActiveRecord::Schema.define(version: 20170225045213) do
 
   create_table "folds", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170220061250) do
     t.string   "image",                  limit: 255
     t.text     "introduction",           limit: 65535
     t.text     "blog",                   limit: 65535
+    t.string   "nickname",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -3,7 +3,7 @@
     <div class="menu col-md-12 col-lg-2">
       <div class="wrapper">
         <div class="mypage-user">
-          <h3><%= link_to 'Aさんのページ', user_path %></h3>
+          <h3><%= link_to 'MyBENTO Top', user_path %></h3>
         </div>
         <div class="create-folder">
           <ul>
@@ -28,6 +28,41 @@
 
 
     <div class="main col-md-12 col-lg-10">
+      <div class="wrapper-profile">
+        <div class="profile">
+          <div class="p-name">
+            <%= current_user.nickname %>
+          </div>
+          <div class="p-img">
+          </div>
+          <div class="p-blog">
+            <table>
+              <tr>
+                <th>Blog, HP：</th>
+                <td><a href="<% current_user.blog %>"><%= current_user.blog %></a></td>
+              </tr>
+            </table>
+          </div>
+          <div class="p-intro">
+            <dl>
+              <dt>自己紹介：</dt>
+              <dd><%= simple_format(current_user.introduction) %></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
       <div class="wrapper-createsentence">
         <div class="create-newsentence">
@@ -59,8 +94,6 @@
           <% end %>
         </div>
       </div>
-
-
 
 
 
