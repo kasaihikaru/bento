@@ -45,16 +45,15 @@
 }
 
 
-.main .wrapper{
-  text-align: right;
-}
-.main .wrapper .btn{
-  display: inline-block;
-}
-
 .search-menu{
   margin-top: 70px;
 }
+
+
+
+
+
+
 
 // メイン
 .main{
@@ -62,56 +61,42 @@
 
 
 .main .post{
-  border-radius: 10px;
+  margin: 0 auto 10px;
   margin-bottom: 30px
 }
 
-
-.main .post .user{
-  font-size: 12px;
-  background-color: #E6E6E6;
-  margin: 15px 15px 0 15px;
+.main .post .post-part{
 }
 
-.main .post .user .name{
-  float: left;
-  margin: 15px 0 0 20px;
+.main .post .post-part table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.main .post .post-part table tr{
+}
+
+.main .post .post-part .index-name{
   font-size: 20px;
-}
-
-.main .post .user .time{
-  float: right;
-  margin-right: 20px;
-  vertical-align: bottom;
-}
-
-.main .post-inner{
-  width: 90%;
-  margin: 0 auto 10px;
-  padding: 15px 0 15px;
-  background: url("board.jpg") no-repeat center center;
-  background-size: 100% 100%;
-  border-radius: 10px;
-}
-
-.post .post-inner .post-part{
-  padding: 20px 0 0 0;
-  margin:10px;
+  margin: 0 10px;
 }
 
 
-.post .post-inner .btn-for-words{
-  margin-left: auto;
-  margin-right: 0px;
+
+// 単語用のボタン位置
+.main .wrapper{
+  text-align: left;
+}
+.main .wrapper .btn{
+  display: inline-block;
 }
 
-.post .post-inner .panel-body{
+.post .panel-body{
   padding: 0;
   background-color: transparent;
 }
 
 
 .post .sentence-table, .post .words-table {
-  width: 100%;
   background-color: white;
 }
