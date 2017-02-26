@@ -62,8 +62,6 @@
 
 
 .main .post{
-  background: url("board.jpg") no-repeat center center;
-  background-size: 100% 100%;
   border-radius: 10px;
   margin-bottom: 30px
 }
@@ -72,11 +70,12 @@
 .main .post .user{
   font-size: 12px;
   background-color: #E6E6E6;
+  margin: 15px 15px 0 15px;
 }
 
 .main .post .user .name{
   float: left;
-  margin-left: 20px;
+  margin: 15px 0 0 20px;
   font-size: 20px;
 }
 
@@ -88,12 +87,16 @@
 
 .main .post-inner{
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 10px;
   padding: 15px 0 15px;
+  background: url("board.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  border-radius: 10px;
 }
 
 .post .post-inner .post-part{
   padding: 20px 0 0 0;
+  margin:10px;
 }
 
 
@@ -104,6 +107,7 @@
 
 .post .post-inner .panel-body{
   padding: 0;
+  background-color: transparent;
 }
 
 

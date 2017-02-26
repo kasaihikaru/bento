@@ -13,21 +13,19 @@
             <li><a href="">お気に入り順</a></li>
           </ul>
         </div>
-      <div class="search-menu">
-        <ul>
-          <li><input placeholder="文章を検索" type="text" value=""></input><button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></li>
-          <li><input placeholder="ユーザーを検索" type="text" value=""></input><button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></li>
-          <li><input placeholder="タグを検索" type="text" value=""></input><button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></li>
-        </ul>
+        <div class="search-menu">
+          <ul>
+            <li><input placeholder="文章を検索" type="text" value=""></input><button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></li>
+            <li><input placeholder="ユーザーを検索" type="text" value=""></input><button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></li>
+            <li><input placeholder="タグを検索" type="text" value=""></input><button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-
-
     <div class="main col-md-12 col-lg-10">
       <div class="post">
-        <div class="post-inner">
-          <% @sentences.each do |sentence| %>
+        <% @sentences.each.with_index(1) do |sentence, i| %>
+          <div class="post-inner">
             <div class="user clearfix">
               <div class="name"><%= sentence.user.nickname %></div>
               <div class="time">
@@ -40,14 +38,14 @@
                   <tr class="warning"><th>文（日本語）</th><th>文（英語）</th></tr>
                 </thead>
                 <tbody>
-                  <tr><th><%= sentence.ja %></th><th><%= sentence.en %></th></tr>
+                  <tr><th><%= simple_format(sentence.ja) %></th><th><%= simple_format(sentence.en) %></th></tr>
                 </tbody>
               </table>
             </div>
             <div class="wrapper">
-             <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#words-open1">Words</button>
+             <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#words-open<%= i %>">Words</button>
             </div>
-            <div id="words-open1" class="collapse words-open">
+            <div id="words-open<%= i %>" class="collapse words-open">
               <div class="panel panel-default">
                 <div class="panel-body">
                   <table class="table table-bordered words-table .table-responsive">
@@ -55,7 +53,7 @@
                       <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
                     </thead>
                     <tbody>
-                      <% @sentence.words.each do |word| %>
+                      <% sentence.words.each do |word| %>
                         <tr>
                           <th><%= word.ja %></th><th><%= word.en %></th></tr>
                       <% end %>
@@ -64,112 +62,8 @@
                 </div>
               </div>
             </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="post">
-        <div class="post-inner">
-          <div class="user clearfix">
-            <div class="name">Bさんの投稿</div>
-            <div class="time">◯月◯日◯時◯分</div>
           </div>
-          <div class="post-part">
-            <table class="table table-bordered sentence-table">
-              <thead>
-                <tr class="warning"><th>文（日本語）</th><th>文（英語）</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="wrapper">
-           <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#words-open2">Words</button>
-          </div>
-          <div id="words-open2" class="collapse">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <table class="table table-bordered words-table .table-responsive">
-                  <thead>
-                    <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><th>これ</th><th>this</th></tr>
-                    <tr><th>ペン</th><th>pen</th></tr>
-                    <tr><th>〜です</th><th>is</th></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="post">
-        <div class="post-inner">
-          <div class="user clearfix">
-            <div class="name">Cさんの投稿</div>
-            <div class="time">◯月◯日◯時◯分</div>
-          </div>
-          <div class="post-part">
-            <table class="table table-bordered sentence-table">
-              <thead>
-                <tr class="warning"><th>文（日本語）</th><th>文（英語）</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="wrapper">
-           <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#words-open3">Words</button>
-          </div>
-          <div id="words-open3" class="collapse">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <table class="table table-bordered words-table .table-responsive">
-                  <thead>
-                    <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><th>これ</th><th>this</th></tr>
-                    <tr><th>ペン</th><th>pen</th></tr>
-                    <tr><th>〜です</th><th>is</th></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="post">
-        <div class="post-inner">
-          <div class="user clearfix">
-            <div class="name">Aさんの投稿</div>
-            <div class="time">◯月◯日◯時◯分</div>
-          </div>
-          <div class="post-part">
-            <table class="table table-bordered sentence-table">
-              <thead>
-                <tr class="warning"><th>文（日本語）</th><th>文（英語）</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="post-part">
-            <table class="table table-borderd words-table .table-responsive">
-              <thead>
-                <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>これ</th><th>this</th></tr>
-                <tr><th>ペン</th><th>pen</th></tr>
-                <tr><th>〜です</th><th>is</th></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

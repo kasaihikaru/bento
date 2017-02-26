@@ -1,4 +1,4 @@
 class Word < ActiveRecord::Base
-  belongs_to :sentence, foreign_key: [:sentence_id]
+  belongs_to :sentence
    # モデルを保存できなくなるのでpresence: trueは記載しない
 end
