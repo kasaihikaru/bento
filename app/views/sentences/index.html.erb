@@ -28,11 +28,14 @@
           <div class="post-part">
             <table class="table table-bordered sentence-table">
               <thead>
-                <tr class="warning"><th><span class="index-name"><%= sentence.user.nickname %></span><time><%= time_ago_in_words sentence.created_at %></time>前</th></tr>
+                <tr class="warning"><th>
+                  <span class="index-name"><a href="/users/<%= sentence.user_id %>"><%= sentence.user.nickname %></a></span>
+                  <time><%= time_ago_in_words sentence.created_at %></time>前
+                  </th></tr>
               </thead>
               <tbody>
                 <tr><th><%= simple_format(sentence.ja) %></th></tr>
-                <tr><th><%= simple_format(sentence.en) %></th></tr>
+                <tr class="en_sentence"><th><%= simple_format(sentence.en) %></th></tr>
               </tbody>
             </table>
           </div>

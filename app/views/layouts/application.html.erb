@@ -36,7 +36,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a href="/abouts">About</a></li>
               <% if user_signed_in? %>
-                <li><a href="/users/:id">MyBento</a></li>
+                <li><a href="/users/<%= current_user.id %>">MyBento</a></li>
               <% else %>
                   <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
                   <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>

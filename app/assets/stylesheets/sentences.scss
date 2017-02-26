@@ -71,16 +71,18 @@
 .main .post .post-part table {
   table-layout: fixed;
   width: 100%;
+  margin-bottom: 0;
 }
 
-.main .post .post-part table tr{
-}
 
 .main .post .post-part .index-name{
   font-size: 20px;
   margin: 0 10px;
 }
 
+.en_sentence p{
+  word-wrap: break-word;
+}
 
 
 // 単語用のボタン位置

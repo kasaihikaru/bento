@@ -83,6 +83,7 @@
                     <div class="panel-body">
                       <%= render :partial => "wordform", :locals=>{:s=>s} %>
                       <%= render :partial => "wordform", :locals=>{:s=>s} %>
+                      <%= render :partial => "wordform", :locals=>{:s=>s} %>
                     </div>
                   </div>
                 </div>
@@ -113,94 +114,44 @@
 
 
       <div class="post">
-        <div class="post-inner">
-          <div class="user clearfix">
-            <div class="name">Aさんの投稿</div>
-            <div class="time">◯月◯日◯時◯分</div>
+        <% @sentences.each.with_index(1) do |sentence, i| %>
+          <div class="post">
+            <div class="post-part">
+              <table class="table table-bordered sentence-table">
+                <thead>
+                  <tr class="warning"><th>
+                    <span class="index-name"><%= sentence.user.nickname %></span>
+                    <time><%= time_ago_in_words sentence.created_at %></time>前
+                    </th></tr>
+                </thead>
+                <tbody>
+                  <tr><th><%= simple_format(sentence.ja) %></th></tr>
+                  <tr class="en_sentence"><th><%= simple_format(sentence.en) %></th></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="wrapper">
+             <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#words-open<%= i %>">Words</button>
+            </div>
+            <div id="words-open<%= i %>" class="collapse words-open">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <table class="table table-bordered words-table .table-responsive">
+                    <thead>
+                      <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
+                    </thead>
+                    <tbody>
+                      <% sentence.words.each do |word| %>
+                        <tr>
+                          <th><%= word.ja %></th><th><%= word.en %></th></tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="post-part">
-            <table class="table table-bordered sentence-table">
-              <thead>
-                <tr class="warning"><th>文（日本語）</th><th>文（英語）</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="post-part">
-            <table class="table table-borderd words-table .table-responsive">
-              <thead>
-                <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>これ</th><th>this</th></tr>
-                <tr><th>ペン</th><th>pen</th></tr>
-                <tr><th>〜です</th><th>is</th></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="post">
-        <div class="post-inner">
-          <div class="user clearfix">
-            <div class="name">Aさんの投稿</div>
-            <div class="time">◯月◯日◯時◯分</div>
-          </div>
-          <div class="post-part">
-            <table class="table table-bordered sentence-table">
-              <thead>
-                <tr class="warning"><th>文（日本語）</th><th>文（英語）</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="post-part">
-            <table class="table table-borderd words-table .table-responsive">
-              <thead>
-                <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>これ</th><th>this</th></tr>
-                <tr><th>ペン</th><th>pen</th></tr>
-                <tr><th>〜です</th><th>is</th></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="post">
-        <div class="post-inner">
-          <div class="user clearfix">
-            <div class="name">Aさんの投稿</div>
-            <div class="time">◯月◯日◯時◯分</div>
-          </div>
-          <div class="post-part">
-            <table class="table table-bordered sentence-table">
-              <thead>
-                <tr class="warning"><th>文（日本語）</th><th>文（英語）</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>これはペンです。</th><th>This is a pen.</th></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="post-part">
-            <table class="table table-borderd words-table .table-responsive">
-              <thead>
-                <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>これ</th><th>this</th></tr>
-                <tr><th>ペン</th><th>pen</th></tr>
-                <tr><th>〜です</th><th>is</th></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
