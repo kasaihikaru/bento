@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="短文・単語をみんなで共有しながら学ぶ英語学習サイトです。">
-    <title>BENTO English</title>
+    <meta name="viewport" content="width=360,initial-scale=1">
+    <title>BENTO English<%= yield :title %></title>
 <!--
     ファビコンの設定
     <link rel="icon" href="">
@@ -37,8 +38,9 @@
               <li><a href="/abouts">About</a></li>
               <% if user_signed_in? %>
                 <li><a href="/users/<%= current_user.id %>">MyBento</a></li>
+                <li><%= link_to 'Log-out', destroy_user_session_path, method: :delete %></li>
               <% else %>
-                  <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+                  <li><%= link_to "Log-in", new_user_session_path, class: 'post' %></li>
                   <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
               <% end %>
             </ul>

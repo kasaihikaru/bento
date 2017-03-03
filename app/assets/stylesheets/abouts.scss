@@ -3,8 +3,56 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.box1{
-  background: url();
-  background-size: cover;
+.level{
+}
+.box{
+  margin: 20px, 0;
+}
+.upper{
+  background-color: #FF8000;
+  text-align: center;
+  border-radius: 30px 30px 0 0;
+}
+.box h1, .box h2, .box h3{
+  margin: 0;
+  color: #000000;
+}
+.box h2{
+  font-family: "Courier",monospace;
+  padding: 20px;
+  font-size: 20px;
+}
+.box h1{
+  font-family: "Hiragino Kaku Gothic Std";
+  padding: 10px;
+  font-weight: bold;
+  font-size: calc(120% + 0.8vw);
+}
+.box h3{
+  padding: 20px;
+  font-size: 18px;
+}
+.lower{
+  background-color: white;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+}
+.lower img{
+  width: 90%;
+  border-radius: 0 0 30px 30px;
+  padding: 20px;
 }
 
+
+
+.box2 .upper{
+  background-color: #E7BA29;
+}
+.for-center{
+  margin: 0 auto;
+}
+.lower ol{
+  padding: 30px;
+  font-size: calc(120% + 0.8vw);
+  list-style: none;
+}

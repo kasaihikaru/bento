@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     @sentence = Sentence.new
     @sentence.words.build
 
-    @sentences = Sentence.order("created_at DESC").limit(20)
+    @user = User.find(params[:id])
+    @sentences = @user.sentences.order("created_at DESC").page(params[:page]).per(20)
   end
 
   def edit

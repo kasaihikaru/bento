@@ -13,6 +13,14 @@
 }
 
 
+
+
+// メニュー
+.mypage-user h3{
+  margin-bottom: 2px;
+}
+
+
 // プロフィール
 .wrapper-profile{
   background: url("r2.jpg") no-repeat top center;
@@ -27,13 +35,13 @@
   color: black;
 }
 .profile .p-img{
-  background: url("aladdin.jpeg") no-repeat center center;
   border-radius: 15px;
-  background-size: 100%;
-  height: 100px;
-  width: 100px;
   margin: 0 30px;
   padding: 0;
+}
+.profile .p-img img{
+  width: 100px; height: 100px;
+  object-fit: contain;
 }
 .p-name{
   padding: 5px;
@@ -49,6 +57,12 @@
 .p-intro p{
   margin: 0;
   padding: 10px;
+}
+.p-edit{
+  float: right;
+}
+.p-edit .btn{
+  display: inline-block;
 }
 
 
@@ -66,9 +80,10 @@
   margin: 10px;
   width: 85%
 }
-.create-newsentence label{
+.create-newsentence h3{
   font-size: 25px;
   color: white;
+  font-weight: bold;
 }
 .create-newsentence form{
   text-align: left;

@@ -48,3 +48,6 @@ end
 gem 'pry-rails'
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'paperclip'
+gem 'kaminari'
+gem 'jquery-turbolinks'
