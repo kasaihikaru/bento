@@ -19,6 +19,10 @@
 @import "bootstrap";
 
 
+body{
+  font-family:"Open Sans" , Roboto , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "Helvetica Neue" , Helvetica , Arial , Verdana , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+}
+
 /*大枠指定*/
 header {
   // ここに指定しても何も効かない。
@@ -156,6 +160,9 @@ footer p img{
 }
 
 
+
+
+// デバイス
 .devise-center{
   margin: 80px auto;
   width: 100%;
@@ -164,4 +171,8 @@ footer p img{
   color: black;
   font-size: 100%;
   font-weight: normal;
+}
+.red{
+  color: red;
+  font-weight: bold;
 }

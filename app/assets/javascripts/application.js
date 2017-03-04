@@ -14,6 +14,8 @@
 // = require jquery_ujs
 //= require bootstrap-sprockets
 // = require turbolinks
+//= require jquery.turbolinks
+//= require jquery.infinitescroll.min
 //= require_tree .
 
 
@@ -28,3 +30,14 @@
 // });
 
 // });
+
+
+  $("#infinite-all-sentences .page").infinitescroll({
+      loading: {
+        img:     "http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_48.gif",
+        msgText: "loading..."
+      },
+      navSelector: "nav.pagination",
+      nextSelector: "nav.pagination a[rel=next]",
+      itemSelector: "#infinite-all-sentences div.infinite-all-sentences" /* このDOMに差し掛かった時に、次のページのロードが始まる*/
+  });

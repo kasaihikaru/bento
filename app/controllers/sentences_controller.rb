@@ -1,10 +1,16 @@
 class SentencesController < ApplicationController
 
   def index
-    @sentences = Sentence.order("created_at DESC").limit(20)
+    @sentences = Sentence.includes(:user).order("created_at DESC").page(params[:page]).per(20)
+    @num = Sentence.count
   end
 
   def edit
+    @sentence = Sentence.new
+    @sentence.words.build
+
+    @originalSen = Sentence.find(params[:id])
+    @user = @originalSen.user
   end
 
 
@@ -14,8 +20,10 @@ class SentencesController < ApplicationController
     a.each do |x|
       Word.create("ja"=>x[:ja], "en"=>x[:en], "sentence_id"=>x[:sentence_id])
     end
+    Like.create(like_params)
     redirect_to user_path(current_user.id) and return
   end
+
 
   private
   def sentence_params
@@ -30,9 +38,14 @@ class SentencesController < ApplicationController
         value[:sentence_id] = id
         arrayedwords << value
       else
-        break
+        next
       end
     end
     return arrayedwords
+  end
+
+  def like_params
+    id = Sentence.last.id
+    params.require(:sentence)[:like].permit(:user_id).merge(sentence_id: id)
   end
 end

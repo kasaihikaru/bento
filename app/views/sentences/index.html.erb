@@ -3,8 +3,8 @@
     <div class="menu col-md-12 col-lg-2">
       <div class="wrapper">
         <div class="current-sentences">
-          <p>みんなの文</p>
-          <h3>1000文</h3>
+          <p>現在のみんなの文</p>
+          <p><span><%= @num %></span> 文</p>
         </div>
         <div class="sort-menu btn-group">
           <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">並び替え<span class="caret"></span></button>
@@ -23,47 +23,56 @@
       </div>
     </div>
     <div class="main col-md-12 col-lg-10">
-      <div class="post">
-        <% @sentences.each.with_index(1) do |sentence, i| %>
-          <div class="post-inner">
-            <div class="user clearfix">
-              <div class="name"><%= sentence.user.nickname %></div>
-              <div class="time">
-                <time><%= time_ago_in_words sentence.created_at %></time>
-              </div>
-            </div>
-            <div class="post-part">
-              <table class="table table-bordered sentence-table">
-                <thead>
-                  <tr class="warning"><th>文（日本語）</th><th>文（英語）</th></tr>
-                </thead>
-                <tbody>
-                  <tr><th><%= simple_format(sentence.ja) %></th><th><%= simple_format(sentence.en) %></th></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="wrapper">
-             <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#words-open<%= i %>">Words</button>
-            </div>
-            <div id="words-open<%= i %>" class="collapse words-open">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <table class="table table-bordered words-table .table-responsive">
-                    <thead>
-                      <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
-                    </thead>
-                    <tbody>
-                      <% sentence.words.each do |word| %>
-                        <tr>
-                          <th><%= word.ja %></th><th><%= word.en %></th></tr>
-                      <% end %>
-                    </tbody>
-                  </table>
-                </div>
+      <% @sentences.each do |sentence, i| %>
+        <div class="post">
+          <div class="post-part">
+            <table class="table table-bordered sentence-table">
+              <thead>
+                <tr class="warning">
+                <th>
+                  <% if sentence.user.avatar? %>
+                  <span class="index-image"><%= image_tag(sentence.user.avatar) %></span>
+                  <% end %>
+                  <span class="index-name"><a href="/users/<%= sentence.user_id %>"><%= sentence.user.nickname %></a></span>
+                  <time><%= time_ago_in_words sentence.created_at %></time>前
+                  <% if user_signed_in? && sentence.user_id != current_user.id %>
+                    <div id="like-buttons-<%= sentence.id %>" class="btnplace">
+                      <%= render :partial => 'likes/like', :locals=>{:sentence=>sentence, :like => sentence.likes.where(user_id: current_user.id).first} %>
+                    </div>
+                  <% end %>
+                </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th><%= simple_format(sentence.ja) %></th></tr>
+                <tr class="en_sentence"><th><%= simple_format(sentence.en) %></th></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="wrapper">
+           <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#words-open<%= sentence.id %>">Words</button>
+          </div>
+          <div id="words-open<%= sentence.id %>" class="collapse words-open">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <table class="table table-bordered words-table .table-responsive">
+                  <thead>
+                    <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
+                  </thead>
+                  <tbody>
+                    <% sentence.words.each do |word| %>
+                      <tr>
+                        <th><%= word.ja %></th><th><%= word.en %></th></tr>
+                    <% end %>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-        <% end %>
+        </div>
+      <% end %>
+      <div class="wrapper-for-pagination">
+        <%= paginate @sentences %>
       </div>
     </div>
   </div>

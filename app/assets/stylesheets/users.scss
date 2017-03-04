@@ -3,14 +3,49 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+
+
+// メニュー
+.index-content .row .mypage-menu{
+  padding: 0;
+}
+.mypage-user{
+  padding: 10px;
+  font-size: 18px;
+  background-color: #FF8000;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.box{
+  padding: 10px;
+  background-color: #FF8000;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.box h4{
+  margin-bottom: 0;
+}
+.mypage-user ul, .box ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.box ul li input{
+  width: 72%;
+  height: 34px;
+}
 .create-folder{
   padding: 5px;
 }
-
 .menu .create-folder input{
   width: 70%;
   font-size: 10px;
 }
+.folds-menu ul{
+  margin-top: 8px;
+}
+
 
 
 // プロフィール
@@ -27,13 +62,13 @@
   color: black;
 }
 .profile .p-img{
-  background: url("aladdin.jpeg") no-repeat center center;
   border-radius: 15px;
-  background-size: 100%;
-  height: 100px;
-  width: 100px;
   margin: 0 30px;
   padding: 0;
+}
+.profile .p-img img{
+  width: 100px; height: 100px;
+  object-fit: contain;
 }
 .p-name{
   padding: 5px;
@@ -49,6 +84,12 @@
 .p-intro p{
   margin: 0;
   padding: 10px;
+}
+.p-edit{
+  float: right;
+}
+.p-edit .btn{
+  display: inline-block;
 }
 
 
@@ -66,12 +107,16 @@
   margin: 10px;
   width: 85%
 }
-.create-newsentence label{
+.create-newsentence h3{
   font-size: 25px;
   color: white;
+  font-weight: bold;
 }
 .create-newsentence form{
   text-align: left;
+}
+.create-newsentence .form-group .form-control{
+  height: 100px;
 }
 .create-newsentence .form-group ul li{
   list-style: none;
@@ -82,5 +127,12 @@
 .create-newsentence .form-group .panel-body{
   background-color: transparent;
   padding: 0;
+}
+.create-newsentence .form-group .panel-default, .create-newsentence .form-group .panel-default .collapse{
+  background-color: transparent;
+  border-color: transparent;
+}
+.create-newsentence .form-group .btn{
+  margin-left: 40px;
 }
 // ここまで投稿フォーム
