@@ -5,7 +5,10 @@ class LikesController < ApplicationController
     @likes = @user.likes
     sentences = []
     @likes.each do |like|
-      sentences << like.sentence
+      sentence = like.sentence
+      unless sentence.user_id == @user.id
+      sentences << sentence
+      end
     end
 
     @sentences = Kaminari.paginate_array(sentences).page(params[:page]).per(20)

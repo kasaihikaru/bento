@@ -2,16 +2,20 @@
 
 <div class="container index-content">
   <div class="row">
-    <div class="menu col-md-12 col-lg-2">
-      <div class="wrapper">
-        <div class="mypage-user">
-          <a href="/users/<%= @user.id %>"><h3><%= @user.nickname %><br></h3>さんのページ</a>
-        </div>
+    <div class="mypage-menu col-md-12 col-lg-2">
+      <div class="mypage-user">
+        <ul>
+          <li><a href="/users/<%= @user.id %>"><i class="glyphicon glyphicon-user"></i><%= @user.nickname %>さんのページ</a></li>
+          <li><a href="/users/<%= @user.id %>/likes"><i class="glyphicon glyphicon-heart"></i>Favorites</a></li>
+        </ul>
+      </div>
+      <div class="box">
+        <h4>＜ボックス一覧＞</h4>
         <% if user_signed_in? && current_user.id == @user.id %>
           <div class="create-folder">
             <ul>
               <li>
-                <input placeholder="新しいボックスを作成" type="text" value=""></input>
+                <input placeholder="New Box" type="text" value=""></input>
                 <button class="btn btn-primary">
                   <i class="glyphicon glyphicon-inbox"></i>
                 </button>
@@ -19,15 +23,13 @@
             </ul>
           </div>
         <% end %>
-      </div>
-      <div class="folds-menu">
-        <h4>ボックス一覧</h4>
-        <ul>
-          <li><a href="/users/<%= @user.id %>/likes">お気に入り一覧</a></li>
-          <li><a href="/folds/1"></a>ドラマ</li>
-          <li><a href="/folds/2"></a>TOEIC</li>
-          <li><a href="/folds/3"></a>日常会話</li>
-        </ul>
+        <div class="folds-menu">
+          <ul>
+            <li><a href="/folds/1"></a><i class="glyphicon glyphicon-user"></i>ドラマ</li>
+            <li><a href="/folds/2"></a><i class="glyphicon glyphicon-user"></i>TOEIC</li>
+            <li><a href="/folds/3"></a><i class="glyphicon glyphicon-user"></i>日常会話</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -77,12 +79,13 @@
                 <%= s.text_area :ja, placeholder: "文章(日本語)", class: "form-control", :required => true %>
                 <%= s.text_area :en, placeholder: "文章(英語)", id: "englishsentence", class: "form-control", :required => true %>
               </div>
-
-
-<!--               <div id="auto-words" class="btn btn-default">自動で単語を入力</div> -->
-
-
-
+              <!-- like機能のための隠しパラムス -->
+              <%= s.fields_for :like do |like| %>
+                <%= like.hidden_field :user_id ,value: @user.id %>
+              <% end %>
+<!--               <div id="auto-words" class="btn btn-default">
+                自動で単語を入力
+              </div> -->
               <div class="form-group">
                 <ul>
                   <%= render :partial => "wordform", :locals=>{:s=>s} %>
@@ -111,51 +114,56 @@
 
 <!-- タイムライン -->
       <div class="post">
-        <% @sentences.each.with_index(1) do |sentence, i| %>
-          <div class="post">
-            <div class="post-part">
-              <table class="table table-bordered sentence-table">
-                <thead>
-                  <tr class="warning">
-                  <th>
-                    <div class="p-header">
-                      <span class="index-name"><%= sentence.user.nickname %></span>
-                      <time><%= time_ago_in_words sentence.created_at %></time>前
-                      <div class="p-edit">
-                        <% if user_signed_in? && current_user.id == @user.id %>
-                          <a href="/sentences/<%= sentence.id %>/edit"><button class="btn btn-default">編集</button></a>
-                          <button class="btn btn-default">消去</button>
-                        <% end %>
+        <% @sentences.each do |sentence| %>
+          <div id="timeline-<%= sentence.id %>">
+            <div class="post">
+              <div class="post-part">
+                <table class="table table-bordered sentence-table">
+                  <thead>
+                    <tr class="warning">
+                    <th>
+                      <div class="p-header">
+                        <span class="index-name"><%= sentence.user.nickname %></span>
+                        <time><%= time_ago_in_words sentence.created_at %></time>前
+                        <div class="p-edit">
+                          <% if user_signed_in? && current_user.id == @user.id %>
+                            <a href="/sentences/<%= sentence.id %>/edit"><button class="btn btn-default">編集</button></a>
+
+                            <%= link_to sentence_like_path(sentence_id: sentence.id, id: current_user.likes.where(sentence_id: sentence.id).ids[0] ), method: :delete, data: { confirm: "本当に消しますか？" }, remote: true do %>
+                                <button class="btn btn-default">消去</button>
+                            <% end %>
+                          <% end %>
+                        </div>
                       </div>
-                    </div>
-                  </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><th><%= simple_format(sentence.ja) %></th></tr>
-                  <tr class="en_sentence"><th><%= simple_format(sentence.en) %></th></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="wrapper">
-              <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#words-open<%= i %>">Words</button>
-            </div>
-            <div id="words-open<%= i %>" class="collapse words-open">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <table class="table table-bordered words-table .table-responsive">
-                    <thead>
-                      <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
-                    </thead>
-                    <tbody>
-                      <% sentence.words.each do |word| %>
-                        <tr>
-                          <th><%= word.ja %></th>
-                          <th><%= word.en %></th>
-                        </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
+                    </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><th><%= simple_format(sentence.ja) %></th></tr>
+                    <tr class="en_sentence"><th><%= simple_format(sentence.en) %></th></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="wrapper">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#words-open<%= sentence.id %>">Words</button>
+              </div>
+              <div id="words-open<%= sentence.id %>" class="collapse words-open">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <table class="table table-bordered words-table .table-responsive">
+                      <thead>
+                        <tr class="warning"><th>単語（日本語）</th><th>単語（英語）</th></tr>
+                      </thead>
+                      <tbody>
+                        <% sentence.words.each do |word| %>
+                          <tr>
+                            <th><%= word.ja %></th>
+                            <th><%= word.en %></th>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>

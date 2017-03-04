@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar,
                                       content_type: ["image/jpg","image/jpeg","image/png"]
 
+  def sentence_like(sentence_id)
+    current_user.likes.where(sentence_id: sentence_id).select(:id)
+  end
+
 end

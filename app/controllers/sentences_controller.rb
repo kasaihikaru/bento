@@ -20,6 +20,7 @@ class SentencesController < ApplicationController
     a.each do |x|
       Word.create("ja"=>x[:ja], "en"=>x[:en], "sentence_id"=>x[:sentence_id])
     end
+    Like.create(like_params)
     redirect_to user_path(current_user.id) and return
   end
 
@@ -41,5 +42,10 @@ class SentencesController < ApplicationController
       end
     end
     return arrayedwords
+  end
+
+  def like_params
+    id = Sentence.last.id
+    params.require(:sentence)[:like].permit(:user_id).merge(sentence_id: id)
   end
 end

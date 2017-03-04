@@ -3,22 +3,49 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.create-folder{
-  padding: 5px;
-}
-
-.menu .create-folder input{
-  width: 70%;
-  font-size: 10px;
-}
-
 
 
 
 // メニュー
-.mypage-user h3{
-  margin-bottom: 2px;
+.index-content .row .mypage-menu{
+  padding: 0;
 }
+.mypage-user{
+  padding: 10px;
+  font-size: 18px;
+  background-color: #FF8000;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.box{
+  padding: 10px;
+  background-color: #FF8000;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.box h4{
+  margin-bottom: 0;
+}
+.mypage-user ul, .box ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.box ul li input{
+  width: 72%;
+  height: 34px;
+}
+.create-folder{
+  padding: 5px;
+}
+.menu .create-folder input{
+  width: 70%;
+  font-size: 10px;
+}
+.folds-menu ul{
+  margin-top: 8px;
+}
+
 
 
 // プロフィール

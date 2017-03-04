@@ -7,7 +7,14 @@ class UsersController < ApplicationController
     @sentence.words.build
 
     @user = User.find(params[:id])
-    @sentences = @user.sentences.order("created_at DESC").page(params[:page]).per(20)
+    usersentences = @user.sentences.order("created_at DESC")
+    sentences = []
+    usersentences.each do |sentence|
+      if sentence.likes.find_by(user_id: @user.id).present?
+        sentences << sentence
+      end
+    end
+    @sentences = Kaminari.paginate_array(sentences).page(params[:page]).per(20)
   end
 
   def edit

@@ -35,7 +35,7 @@
                   <% end %>
                   <span class="index-name"><a href="/users/<%= sentence.user_id %>"><%= sentence.user.nickname %></a></span>
                   <time><%= time_ago_in_words sentence.created_at %></time>前
-                  <% if user_signed_in? %>
+                  <% if user_signed_in? && sentence.user_id != current_user.id %>
                     <div id="like-buttons-<%= sentence.id %>" class="btnplace">
                       <%= render :partial => 'likes/like', :locals=>{:sentence=>sentence, :like => sentence.likes.where(user_id: current_user.id).first} %>
                     </div>
