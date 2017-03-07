@@ -1,36 +1,9 @@
 <div class="container index-content">
   <div class="row">
-    <div class="mypage-menu col-md-12 col-lg-2">
-      <div class="mypage-user">
-        <ul>
-          <li><a href="/users/<%= @user.id %>"><i class="glyphicon glyphicon-user"></i><%= @user.nickname %>さんのページ</a></li>
-          <li><a href="/users/<%= @user.id %>/likes"><i class="glyphicon glyphicon-heart"></i>Favorites</a></li>
-        </ul>
-      </div>
-      <div class="box">
-        <h4>＜ボックス一覧＞</h4>
-        <% if user_signed_in? && current_user.id == @user.id %>
-          <div class="create-folder">
-            <ul>
-              <li>
-                <input placeholder="New Box" type="text" value=""></input>
-                <button class="btn btn-primary">
-                  <i class="glyphicon glyphicon-inbox"></i>
-                </button>
-              </li>
-            </ul>
-          </div>
-        <% end %>
-        <div class="folds-menu">
-          <ul>
-            <li><a href="/folds/1"></a><i class="glyphicon glyphicon-user"></i>ドラマ</li>
-            <li><a href="/folds/2"></a><i class="glyphicon glyphicon-user"></i>TOEIC</li>
-            <li><a href="/folds/3"></a><i class="glyphicon glyphicon-user"></i>日常会話</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="main col-md-12 col-lg-10">
+<!--     ユーザーメニュー -->
+    <%= render :partial => 'users/usermenu', :locals=>{ user: @user, fold: @fold, folds: @folds} %>
+
+    <div class="main col-xs-12 col-lg-10">
       <% @sentences.each do |sentence, i| %>
         <div class="post">
           <div class="post-part">
@@ -39,14 +12,15 @@
                 <tr class="warning">
                 <th>
                   <% if sentence.user.avatar? %>
-                  <span class="index-image"><%= image_tag(sentence.user.avatar) %></span>
+                    <%= image_tag(sentence.user.avatar) %>
                   <% end %>
-                  <span class="index-name"><a href="/users/<%= sentence.user_id %>"><%= sentence.user.nickname %></a></span>
-                  <time><%= time_ago_in_words sentence.created_at %></time>前
-
+                  <div class="tate">
+                    <span class="index-name"><a href="/users/<%= sentence.user_id %>"><%= sentence.user.nickname %></a></span>
+                    <time><%= time_ago_in_words sentence.created_at %></time>前
+                  </div>
                   <% if user_signed_in? %>
                     <div id="like-buttons-<%= sentence.id %>" class="btnplace">
-                      <%= render :partial => 'likes/like', :locals=>{:sentence=>sentence, :like => sentence.likes.where(user_id: current_user.id).first} %>
+                      <%= render :partial => 'likes/like', :locals=>{:sentence=>sentence, :like => sentence.likes.where(user_id: current_user.id).first, myfolds: @myfolds} %>
                     </div>
                   <% end %>
                   </th>
@@ -59,7 +33,7 @@
             </table>
           </div>
           <div class="wrapper">
-           <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#words-open<%= sentence.id %>">Words</button>
+           <button type="button" class="btn btn-original btn-sm" data-toggle="collapse" data-target="#words-open<%= sentence.id %>">Words</button>
           </div>
           <div id="words-open<%= sentence.id %>" class="collapse words-open">
             <div class="panel panel-default">
@@ -80,7 +54,7 @@
           </div>
         </div>
       <% end %>
-      <div class="wrapper-for-pagination">
+      <div class="wrapper-for-pagination first-color ten-radi">
         <%= paginate @sentences %>
       </div>
     </div>

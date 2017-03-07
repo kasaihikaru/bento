@@ -1,0 +1,7 @@
+bucket: 'bento-english'
+# access_key_id: ENV['BENTO_ACCESS_KEY_ID']
+# secret_access_key: ENV['BENTO_SECRET_ACCESS_KEY']
+access_key_id: 'AKIAJ23ALIOWISN4TRPA'
+secret_access_key: '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'
+s3_host_name: 's3-ap-northeast-1.amazonaws.com'
+s3_region: 'ap-northeast-1'

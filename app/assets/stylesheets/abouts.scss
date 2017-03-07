@@ -5,10 +5,13 @@
 
 .level{
 }
-.box{
-  margin: 20px, 0;
+.row .box{
+  margin: 20px 0;
+  box-shadow: 10px 10px 10px;
+  padding: 0;
+  border-radius: 30px;
 }
-.upper{
+.box .upper{
   background-color: #FF8000;
   text-align: center;
   border-radius: 30px 30px 0 0;
@@ -51,8 +54,22 @@
 .for-center{
   margin: 0 auto;
 }
-.lower ol{
+.box2 .for-left{
+  padding-left: 0;
+}
+.box2 .lower img{
+  width: 100%;
+  padding-right: 0;
+}
+.lower h1{
   padding: 30px;
   font-size: calc(120% + 0.8vw);
-  list-style: none;
+  margin: 0;
+}
+.lower h2{
+  font-size: calc(80% + 0.8vw);
+}
+.lower p{
+  font-size: calc(50% + 1vw);
+  text-align: center;
 }

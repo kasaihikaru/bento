@@ -31,11 +31,15 @@ header {
   background-color: white;
 }
 
-
+// 背景
 .contents {
   padding-top: 110px;
-  background: url("bboard.jpg") repeat;
-  background-size: 50%;
+  // background-color: rgb(217,104,49);
+  background-color: #EEE4B7;
+  // background-color: #E3D6C6;
+}
+.main .post .post-part thead a{
+  color: black;
 }
 
 footer {
@@ -43,19 +47,34 @@ footer {
 }
 
 
+
+// common
 .clearfix:after {
   content: "";
   clear: both;
   display: block;
 }
-
-
-
-/*common*/
-/*リンクの下線を消す*/
 a {
   text-decoration: none;
 }
+body .btn-original{
+  background-color: #ec583a;
+  color: white;
+  font-weight: bold;
+}
+body .ten-radi{
+  border-radius: 10px;
+}
+body .fift-radi{
+  border-radius: 10px;
+}
+body .ten-shad{
+  box-shadow: 10px 10px 10px;
+}
+body .first-color{
+  background-color: #F9A646;
+}
+
 
 
 
@@ -67,12 +86,70 @@ a {
 
 
 // お箸、ハンバーガーメニューのボタン調整
-.chop{
-  background: url("chops.png") no-repeat;
-  background-position: 0%;
-  background-size: 700px;
-  float: right;
+@media screen and (max-width: 770px) {
+  .chop{
+    background:transparent;
+  }
+  .header-container .navbar-nav{
+    margin: 0;
+  }
 }
+@media screen and (min-width: 770px) {
+  .chop{
+    background: url("chops.png") no-repeat;
+    background-position: 0%;
+    background-size: 700px;
+    float: right;
+  }
+  .header-container .navbar-nav {
+    position: relative;
+    min-height: 55px;
+    margin: 20px 135px 20px 0;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .header-container .navbar-nav li a{
+    padding: 0;
+  }
+  .header-container .navbar-nav li{
+    width: 70px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 90px;
+    background: transparent;
+    font-size: 17px;
+    margin-left: 10px;
+  }
+}
+@media screen and (min-width: 380px) {
+  .header-container .navbar-nav li a{
+    padding: 15px 15px;
+  }
+  .header-container .navbar-nav li{
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 90px;
+    background: transparent;
+    font-size: 17px;
+    margin-left: 10px;
+  }
+}
+
+
+
+.navbar-brand{
+  background: url("logo.png") no-repeat;
+  background-size: contain;
+  height: 95px;
+  width: 300px;
+  padding: 0;
+  float: left;
+}
+
 .navbar .navbar-header .hunbarger-color{
   background-color: white;
   border-color: black;
@@ -84,17 +161,6 @@ a {
 
 
 
-/*navbar-header*/
-.header-container .navbar-header{
-}
-.navbar-brand{
-  background: url("logo.png") no-repeat;
-  background-size: contain;
-  height: 95px;
-  width: 300px;
-  padding: 0;
-  float: left;
-}
 //  ヘッダー中央の上へのスムーズスクロール
 // #pageTop{
 //   position: relative;
@@ -112,23 +178,11 @@ a {
 
 
 /*navbar-nav*/
-.header-container .navbar-nav {
-  position: relative;
-  min-height: 55px;
-  margin: 20px 135px 20px 0;
-}
-
-
-.header-container .navbar-right{
-
-}
-
 
 .header-container .navbar-nav li{
   display: inline-block;
   text-align: center;
   border-radius: 5px;
-  width: 100px;
   line-height: 90px;
   background: transparent;
   font-size: 17px;

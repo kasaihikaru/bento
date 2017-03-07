@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228094910) do
+ActiveRecord::Schema.define(version: 20170305080313) do
+
+  create_table "fold_sentences", force: :cascade do |t|
+    t.integer  "fold_id",     limit: 4
+    t.integer  "sentence_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "fold_sentences", ["fold_id"], name: "index_fold_sentences_on_fold_id", using: :btree
+  add_index "fold_sentences", ["sentence_id"], name: "index_fold_sentences_on_sentence_id", using: :btree
 
   create_table "folds", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -72,4 +82,6 @@ ActiveRecord::Schema.define(version: 20170228094910) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "fold_sentences", "folds"
+  add_foreign_key "fold_sentences", "sentences"
 end

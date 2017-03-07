@@ -4,12 +4,19 @@ Rails.application.routes.draw do
 
   resources :sentences, only: [:index, :create, :edit] do
     resources :likes, only: [:create, :destroy]
+    resources :fold_sentences, only: [:destroy, :create]
   end
   resources :users, only: [:show, :create] do
     resources :likes, only: [:index]
   end
   resources :folds, only: [:show, :create]
+
   resources :abouts, only: [:index]
+
+  resources :search, only: [:index]
+  resources :ja_search, only: [:index]
+  resources :user_search, only: [:index]
+  resources :sort, only: [:index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

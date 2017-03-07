@@ -6,6 +6,10 @@ class Sentence < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :likes
 
+  has_many :fold_sentences, dependent: :destroy
+  has_many :folds, :through => :fold_sentences
+  accepts_nested_attributes_for :fold_sentences, allow_destroy: true
+
   validates :ja, presence: true
   validates :en, presence: true
 

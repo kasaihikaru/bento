@@ -13,9 +13,8 @@
 
 // メニュー
 .menu {
-  background-color: #FF8000;
+  // background-color: #FF8000;
   margin-bottom: 10px;
-  border-radius: 10px;
 }
 
 .menu .current-sentences p{
@@ -75,22 +74,32 @@
   width: 100%;
   margin-bottom: 0;
 }
-
-
+.tate{
+  float: left;
+}
 .main .post .post-part .index-name{
   font-size: calc(80% + 0.8vw);
   margin: 0 10px;
 }
-.main .post .post-part .index-image img{
+.main .post .post-part img{
   width: auto;
   max-height: 64px;
   border-radius: 5px;
+  float: left;
 }
-
+.tate span{
+  display: block;
+}
+.tate time{
+  margin-left: 15px;
+}
 .en_sentence p{
   word-wrap: break-word;
 }
 
+.sentence-table p{
+  margin: 0;
+}
 
 // 単語用のボタン位置
 .main .wrapper{
@@ -122,9 +131,9 @@
 // ページネーション
 .wrapper-for-pagination{
   text-align: center;
+  margin: 0 10px 10px 10px;
 }
 .pagination{
-  background: #FF8000;
   padding: 0 10px;
 }
 .wrapper-for-pagination .pagination span{
@@ -132,4 +141,12 @@
 }
 .wrapper-for-pagination .pagination a{
   padding: 10px;
+  color: black;
+}
+.wrapper-for-pagination .pagination .current{
+  color: #808080;
+  font-size: calc(60% + 0.8vw);
+}
+.pagination .gap{
+  display: none;
 }
