@@ -1,7 +1,7 @@
 <% provide :title, " | 文章を編集" %>
 
 <div class="container index-content">
-  <% if user_signed_in? && current_user.id == @user.id %>
+  <% if user_signed_in? %>
     <div class="wrapper-createsentence">
       <div class="create-newsentence">
         <%= form_for (@sentence) do |s| %>
@@ -10,6 +10,14 @@
             <%= s.text_area :ja, value: @originalSen.ja, placeholder: "文章(日本語)", class: "form-control" %>
             <%= s.text_area :en, value: @originalSen.en, placeholder: "文章(英語)", class: "form-control" %>
           </div>
+          <!-- like機能のための隠しパラムス -->
+          <%= s.fields_for :like do |like| %>
+            <%= like.hidden_field :user_id ,value: current_user.id %>
+          <% end %>
+          <!-- fold機能のための隠しパラムス -->
+          <%= s.fields_for :fold_sentence do |fold| %>
+            <%= fold.hidden_field :fold_id ,value: params[:fold_id] %>
+          <% end %>
           <div class="form-group">
             <ul>
             <% @originalSen.words.each do |word| %>

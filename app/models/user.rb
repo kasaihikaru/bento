@@ -8,9 +8,15 @@ class User < ActiveRecord::Base
 
   has_many :sentences
   has_many :likes
+  has_many :folds
 
   has_attached_file :avatar,
-                      styles:  {original: "100x100#"}
+                    :styles  => {original: "100x100#"},
+                    # :storage => :s3,
+                    # :s3_permissions => :public,
+                    # :s3_credentials => "#{Rails.root}/config/s3.yml",
+                    # :path => ":attachment/:id/:style.:extension"
+
   validates_attachment_content_type :avatar,
                                       content_type: ["image/jpg","image/jpeg","image/png"]
 

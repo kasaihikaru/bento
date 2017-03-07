@@ -16,50 +16,96 @@
   background-color: #FF8000;
   margin-bottom: 10px;
   border-radius: 10px;
+  box-shadow: 10px 10px 10px;
 }
-.box{
+.mypage-user .selected a{
+
+  pointer-events: none;
+  font-weight: bold;
+}
+.boxes{
   padding: 10px;
   background-color: #FF8000;
   margin-bottom: 10px;
   border-radius: 10px;
+  box-shadow: 10px 10px 10px;
 }
-.box h4{
-  margin-bottom: 0;
-}
-.mypage-user ul, .box ul{
+.mypage-menu ul{
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.box ul li input{
-  width: 72%;
-  height: 34px;
+.mypage-menu ul li{
+  margin: 7px 0;
+}
+.mypage-menu ul li a{
+  color: black;
 }
 .create-folder{
   padding: 5px;
 }
-.menu .create-folder input{
-  width: 70%;
-  font-size: 10px;
+.create-folder .newbox{
+  width: 65%;
+  font-size: 15px;
+  display: inline;
+}
+.create-folder .btn{
+  float: right;
 }
 .folds-menu ul{
-  margin-top: 8px;
+  margin: 8px 0 0 8px;
+}
+.folds-menu .selected a{
+
+  pointer-events: none;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-
-
 // プロフィール
+.hasami{
+  margin-bottom: 15px;
+//   width: 100%;
+//   display: inline-block;
+//   position: relative;
+//   overflow: hidden; /* 不要部分を消す */
+//   padding: 6px; /* 6px だけは写真からはみ出す */
+}
+// .hasami:before, .test:after {
+//   content: "";
+//   position: absolute;
+//   z-index: 1;
+//   width: 97px;
+//   height: 50px;
+//   background: url("bboard.jpg") repeat;
+//   transform: rotate(-30deg);
+// }
+// .hasami:before {
+//   box-shadow: 0 10px 8px -12px rgba(0, 0, 0, 0.8);
+//   top: -24px;
+//   bottom: auto;
+//   right: auto;
+//   left: -26px;
+// }
+// .hasami:after {
+//   box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.7);
+//   top: auto;
+//   bottom: -22px;
+//   right: -25px;
+//   left: auto;
+// }
 .wrapper-profile{
   background: url("r2.jpg") no-repeat top center;
   background-color: #FFFFFF;
   background-size: 100%;
   width: 100%;
-  margin-bottom: 10px;
   border-radius: 15px;
+  margin-bottom: 15px;
 }
 .profile{
   padding: 10px;
   color: black;
+  border-radius: 15px;
 }
 .profile .p-img{
   border-radius: 15px;
@@ -97,10 +143,12 @@
 // 投稿フォーム
 .wrapper-createsentence{
   text-align: center;
-  background: url("board2.jpg") no-repeat center center;
+  // background: url("board2.jpg") no-repeat center center;
+  background-color: #FF8000;
   background-size: 100% 100%;
   margin-bottom: 10px;
   border-radius: 15px;
+  box-shadow: 10px 10px 10px;
 }
 .create-newsentence{
   display: inline-block;
@@ -109,7 +157,7 @@
 }
 .create-newsentence h3{
   font-size: 25px;
-  color: white;
+  // color: white;
   font-weight: bold;
 }
 .create-newsentence form{

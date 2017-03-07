@@ -2,40 +2,12 @@
 
 <div class="container index-content">
   <div class="row">
-    <div class="mypage-menu col-md-12 col-lg-2">
-      <div class="mypage-user">
-        <ul>
-          <li><a href="/users/<%= @user.id %>"><i class="glyphicon glyphicon-user"></i><%= @user.nickname %>さんのページ</a></li>
-          <li><a href="/users/<%= @user.id %>/likes"><i class="glyphicon glyphicon-heart"></i>Favorites</a></li>
-        </ul>
-      </div>
-      <div class="box">
-        <h4>＜ボックス一覧＞</h4>
-        <% if user_signed_in? && current_user.id == @user.id %>
-          <div class="create-folder">
-            <ul>
-              <li>
-                <input placeholder="New Box" type="text" value=""></input>
-                <button class="btn btn-primary">
-                  <i class="glyphicon glyphicon-inbox"></i>
-                </button>
-              </li>
-            </ul>
-          </div>
-        <% end %>
-        <div class="folds-menu">
-          <ul>
-            <li><a href="/folds/1"></a><i class="glyphicon glyphicon-user"></i>ドラマ</li>
-            <li><a href="/folds/2"></a><i class="glyphicon glyphicon-user"></i>TOEIC</li>
-            <li><a href="/folds/3"></a><i class="glyphicon glyphicon-user"></i>日常会話</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <!-- ユーザーメニュー -->
+    <%= render :partial => 'users/usermenu', :locals=>{ user: @user, fold: @fold, folds: @folds} %>
 
-
-    <div class="main col-md-12 col-lg-10">
+    <div class="main col-xs-12 col-lg-10">
 <!-- プロフィール -->
+      <div class="hasami">
       <div class="wrapper-profile">
         <div class="profile clearfix">
           <div class="p-name">
@@ -62,54 +34,12 @@
           </div>
           <% if user_signed_in? && current_user.id == @user.id %>
             <div class="p-edit">
-              <a href="/users/edit"><button class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i>編集</button></a>
+              <a href="/users/edit"><button class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i>Edit</button></a>
             </div>
           <% end %>
         </div>
       </div>
-
-
-<!-- 新しい文 -->
-      <% if user_signed_in? && current_user.id == @user.id %>
-        <div class="wrapper-createsentence">
-          <div class="create-newsentence">
-            <%= form_for (@sentence) do |s| %>
-              <div class="form-group">
-                <h3>新しい文を作成する</h3>
-                <%= s.text_area :ja, placeholder: "文章(日本語)", class: "form-control", :required => true %>
-                <%= s.text_area :en, placeholder: "文章(英語)", id: "englishsentence", class: "form-control", :required => true %>
-              </div>
-              <!-- like機能のための隠しパラムス -->
-              <%= s.fields_for :like do |like| %>
-                <%= like.hidden_field :user_id ,value: @user.id %>
-              <% end %>
-<!--               <div id="auto-words" class="btn btn-default">
-                自動で単語を入力
-              </div> -->
-              <div class="form-group">
-                <ul>
-                  <%= render :partial => "wordform", :locals=>{:s=>s} %>
-                  <div class="wrapper">
-                  <button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target="#more-words"><i class="glyphicon glyphicon-chevron-down"></i></button>
-                  </div>
-                  <div id="more-words" class="collapse">
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        <%= render :partial => "wordform", :locals=>{:s=>s} %>
-                        <%= render :partial => "wordform", :locals=>{:s=>s} %>
-                        <%= render :partial => "wordform", :locals=>{:s=>s} %>
-                      </div>
-                    </div>
-                  </div>
-                </ul>
-              </div>
-              <div class="form-group">
-                <%= s.submit "作成", class: "btn btn-primary withripple" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+      </div>
 
 
 <!-- タイムライン -->
@@ -123,17 +53,37 @@
                     <tr class="warning">
                     <th>
                       <div class="p-header">
-                        <span class="index-name"><%= sentence.user.nickname %></span>
-                        <time><%= time_ago_in_words sentence.created_at %></time>前
+                        <% if sentence.user.avatar? %>
+                          <%= image_tag(sentence.user.avatar) %>
+                        <% end %>
+                        <div class="tate">
+                          <span class="index-name"><%= sentence.user.nickname %></span>
+                          <time><%= time_ago_in_words sentence.created_at %></time>前
+                        </div>
                         <div class="p-edit">
-                          <% if user_signed_in? && current_user.id == @user.id %>
-                            <a href="/sentences/<%= sentence.id %>/edit"><button class="btn btn-default">編集</button></a>
-
+                          <% if user_signed_in? && current_user.id == @user.id && sentence.user == current_user%>
                             <%= link_to sentence_like_path(sentence_id: sentence.id, id: current_user.likes.where(sentence_id: sentence.id).ids[0] ), method: :delete, data: { confirm: "本当に消しますか？" }, remote: true do %>
-                                <button class="btn btn-default">消去</button>
+                                <button class="btn btn-default"><i class="glyphicon glyphicon-trash"></i> Delete</button>
                             <% end %>
+                            <div class="btn-group">
+                              <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-download-alt"></i> Add<span class="caret"></span></button>
+                              <ul class="dropdown-menu">
+                                <% @myfolds.each do |fold| %>
+                                <li>
+                                  <%= link_to sentence_fold_sentences_path(sentence_id: sentence.id, fold_id: fold.id), method: :post, remote: true do %>
+                                    <i class="glyphicon glyphicon-inbox"></i> <%= fold.name %>
+                                  <% end %>
+                                </li>
+                                <% end %>
+                              </ul>
+                            </div>
                           <% end %>
                         </div>
+                        <% if user_signed_in? && sentence.user_id != current_user.id %>
+                          <div id="like-buttons-<%= sentence.id %>" class="btnplace">
+                            <%= render :partial => 'likes/like', :locals=>{:sentence=>sentence, :like => sentence.likes.where(user_id: current_user.id).first, myfolds: @myfolds} %>
+                          </div>
+                        <% end %>
                       </div>
                     </th>
                     </tr>
@@ -145,7 +95,7 @@
                 </table>
               </div>
               <div class="wrapper">
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#words-open<%= sentence.id %>">Words</button>
+                <button type="button" class="btn btn-original btn-sm" data-toggle="collapse" data-target="#words-open<%= sentence.id %>">Words</button>
               </div>
               <div id="words-open<%= sentence.id %>" class="collapse words-open">
                 <div class="panel panel-default">
@@ -170,7 +120,9 @@
           </div>
         <% end %>
       </div>
-      <%= paginate(@sentences) %>
+      <div class="wrapper-for-pagination first-color ten-radi">
+        <%= paginate @sentences %>
+      </div>
     </div>
   </div>
 </div>

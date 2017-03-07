@@ -3,6 +3,9 @@ class SentencesController < ApplicationController
   def index
     @sentences = Sentence.includes(:user).order("created_at DESC").page(params[:page]).per(20)
     @num = Sentence.count
+    if user_signed_in?
+      @myfolds = current_user.folds
+    end
   end
 
   def edit
@@ -13,15 +16,15 @@ class SentencesController < ApplicationController
     @user = @originalSen.user
   end
 
-
   def create
-    Sentence.create(sentence_params)
+    newsenten = Sentence.create(sentence_params)
     a = word_params
     a.each do |x|
       Word.create("ja"=>x[:ja], "en"=>x[:en], "sentence_id"=>x[:sentence_id])
     end
     Like.create(like_params)
-    redirect_to user_path(current_user.id) and return
+    FoldSentence.create(fold_sentence_params)
+    redirect_to fold_path(params[:sentence][:fold_sentence][:fold_id]) and return
   end
 
 
@@ -47,5 +50,10 @@ class SentencesController < ApplicationController
   def like_params
     id = Sentence.last.id
     params.require(:sentence)[:like].permit(:user_id).merge(sentence_id: id)
+  end
+
+  def fold_sentence_params
+    id = Sentence.last.id
+    params.require(:sentence)[:fold_sentence].permit(:fold_id).merge(sentence_id: id)
   end
 end

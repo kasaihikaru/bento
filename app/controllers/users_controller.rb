@@ -15,9 +15,19 @@ class UsersController < ApplicationController
       end
     end
     @sentences = Kaminari.paginate_array(sentences).page(params[:page]).per(20)
+
+    @fold = Fold.new
+    @folds = @user.folds
+    if user_signed_in?
+      @myfolds = current_user.folds
+    end
+
+    @flag = 0
   end
 
   def edit
   end
+
+
 
 end
