@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :folds
 
   has_attached_file :avatar,
-                    :styles  => {original: "100x100#"},
+                    :styles  => {original: "100x100#"}
                     # :storage => :s3,
                     # :s3_permissions => :public,
                     # :s3_credentials => "#{Rails.root}/config/s3.yml",
