@@ -25,12 +25,12 @@
               <%= s.fields_for :fold_sentence do |fold| %>
                 <%= fold.hidden_field :fold_id ,value: @current_fold.id %>
               <% end %>
-
-
-              <div id="auto-words" class="btn btn-default">
-                英単語を抜き出す
+              <div class="clearfix">
+                <div id="auto-words" class="btn btn-default">
+                  英単語を抜き出す
+                </div>
+                <div class="jumptodetail"><a href="/abouts/auto">（詳細）</a></div>
               </div>
-
 
 
               <div class="form-group">

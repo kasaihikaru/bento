@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   end
   resources :folds, only: [:show, :create]
 
-  resources :abouts, only: [:index]
+  resources :abouts, only: [:index] do
+    collection do
+      get 'auto'
+      get 'developer'
+    end
+  end
 
   resources :search, only: [:index]
   resources :ja_search, only: [:index]
