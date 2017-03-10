@@ -10,11 +10,11 @@
             <%= s.text_area :ja, value: @originalSen.ja, placeholder: "文章(日本語)", class: "form-control" %>
             <%= s.text_area :en, value: @originalSen.en, placeholder: "文章(英語)", class: "form-control" %>
           </div>
-          <!-- like機能のための隠しパラムス -->
+          <!-- like機能 -->
           <%= s.fields_for :like do |like| %>
             <%= like.hidden_field :user_id ,value: current_user.id %>
           <% end %>
-          <!-- fold機能のための隠しパラムス -->
+          <!-- fold機能 -->
           <%= s.fields_for :fold_sentence do |fold| %>
             <%= fold.hidden_field :fold_id ,value: params[:fold_id] %>
           <% end %>

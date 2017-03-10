@@ -24,9 +24,6 @@ body{
 }
 
 /*大枠指定*/
-header {
-  // ここに指定しても何も効かない。
-}
 .navbar{
   background-color: white;
 }
@@ -34,9 +31,7 @@ header {
 // 背景
 .contents {
   padding-top: 110px;
-  // background-color: rgb(217,104,49);
   background-color: #EEE4B7;
-  // background-color: #E3D6C6;
 }
 .main .post .post-part thead a{
   color: black;
@@ -44,6 +39,7 @@ header {
 
 footer {
   height: 30px;
+  background-color: #EEE4B7;
 }
 
 
@@ -166,7 +162,7 @@ body .first-color{
 //   position: relative;
 //   left: 50%;
 //   float: left;
-//   background: url("logo2.png") no-repeat;
+//   background: url("logo_transparent.png") no-repeat;
 //   background-size: contain;
 //   height: 89px;
 //   width: 100px;

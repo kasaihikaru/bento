@@ -39,13 +39,13 @@ GEM
     arel (6.0.4)
     autoprefixer-rails (6.7.6)
       execjs
-    aws-sdk (2.8.2)
-      aws-sdk-resources (= 2.8.2)
-    aws-sdk-core (2.8.2)
+    aws-sdk (2.8.3)
+      aws-sdk-resources (= 2.8.3)
+    aws-sdk-core (2.8.3)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.8.2)
-      aws-sdk-core (= 2.8.2)
+    aws-sdk-resources (2.8.3)
+      aws-sdk-core (= 2.8.3)
     aws-sigv4 (1.0.0)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
@@ -74,6 +74,10 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    dotenv (2.2.0)
+    dotenv-rails (2.2.0)
+      dotenv (= 2.2.0)
+      railties (>= 3.2, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
     globalid (0.3.7)
@@ -195,7 +199,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.4)
+    uglifier (3.1.5)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -214,6 +218,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

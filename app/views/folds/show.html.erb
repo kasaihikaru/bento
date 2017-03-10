@@ -17,18 +17,18 @@
                 <%= s.text_area :ja, placeholder: "文章(日本語)", class: "form-control", :required => true %>
                 <%= s.text_area :en, placeholder: "文章(英語)", id: "englishsentence", class: "form-control", :required => true %>
               </div>
-              <!-- like機能のための隠しパラムス -->
+              <!-- like -->
               <%= s.fields_for :like do |like| %>
                 <%= like.hidden_field :user_id ,value: @user.id %>
               <% end %>
-              <!-- fold機能のための隠しパラムス -->
+              <!-- fold -->
               <%= s.fields_for :fold_sentence do |fold| %>
                 <%= fold.hidden_field :fold_id ,value: @current_fold.id %>
               <% end %>
 
 
               <div id="auto-words" class="btn btn-default">
-                自動で単語を入力
+                英単語を抜き出す
               </div>
 
 
@@ -71,17 +71,51 @@
                 <table class="table table-bordered sentence-table">
                   <thead>
                     <tr class="warning">
-                    <th>
-                      <div class="p-header">
-                        <% if sentence.user.avatar? %>
-                          <%= image_tag(sentence.user.avatar) %>
+                    <th class="p-header">
+                      <% if sentence.user.avatar? %>
+                        <%= image_tag(sentence.user.avatar) %>
+                      <% end %>
+                      <div class="tate">
+                        <span class="index-name"><%= sentence.user.nickname %></span>
+                        <time><%= time_ago_in_words sentence.created_at %></time>前
+                      </div>
+                      <div class="p-edit">
+                        <% if user_signed_in? && current_user.id == @user.id && sentence.user == current_user %>
+                          <div class="btn-group">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-pencil"></i><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li>
+                                <%= link_to edit_sentence_path(id: sentence.id, fold_id: @current_fold.id ), method: :get do %>
+                                  <i class="glyphicon glyphicon-pencil"></i> Edit
+                                <% end %>
+                              </li>
+                              <li>
+                                <%= link_to sentence_fold_sentence_path(sentence_id: sentence.id, id: sentence.fold_sentences.where(fold_id: @current_fold.id).ids[0] ), method: :delete, remote: true do %>
+                                  <i class="glyphicon glyphicon-level-up"></i> Remove from this box
+                                <% end %>
+                              </li>
+                              <li>
+                                <%= link_to sentence_like_path(sentence_id: sentence.id, id: current_user.likes.where(sentence_id: sentence.id).ids[0] ), method: :delete, data: { confirm: "本当に消しますか？" }, remote: true do %>
+                                  <i class="glyphicon glyphicon-trash"></i> Delete the sentence
+                                <% end %>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="btn-group">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-download-alt"></i> Add<span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <% @myfolds.each do |fold| %>
+                              <li>
+                                <%= link_to sentence_fold_sentences_path(sentence_id: sentence.id, fold_id: fold.id), method: :post, remote: true do %>
+                                  <i class="glyphicon glyphicon-inbox"></i> <%= fold.name %>
+                                <% end %>
+                              </li>
+                              <% end %>
+                            </ul>
+                          </div>
                         <% end %>
-                        <div class="tate">
-                          <span class="index-name"><%= sentence.user.nickname %></span>
-                          <time><%= time_ago_in_words sentence.created_at %></time>前
-                        </div>
-                        <div class="p-edit">
-                          <% if user_signed_in? && current_user.id == @user.id && sentence.user == current_user %>
+                        <% if user_signed_in? && sentence.user_id != current_user.id %>
+                          <% if @current_fold.user == current_user %>
                             <div class="btn-group">
                               <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-pencil"></i><span class="caret"></span></button>
                               <ul class="dropdown-menu">
@@ -95,58 +129,22 @@
                                     <i class="glyphicon glyphicon-level-up"></i> Remove from this box
                                   <% end %>
                                 </li>
-                                <li>
-                                  <%= link_to sentence_like_path(sentence_id: sentence.id, id: current_user.likes.where(sentence_id: sentence.id).ids[0] ), method: :delete, data: { confirm: "本当に消しますか？" }, remote: true do %>
-                                    <i class="glyphicon glyphicon-trash"></i> Delete the sentence
-                                  <% end %>
-                                </li>
-                              </ul>
-                            </div>
-                            <div class="btn-group">
-                              <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-download-alt"></i> Add<span class="caret"></span></button>
-                              <ul class="dropdown-menu">
-                                <% @myfolds.each do |fold| %>
-                                <li>
-                                  <%= link_to sentence_fold_sentences_path(sentence_id: sentence.id, fold_id: fold.id), method: :post, remote: true do %>
-                                    <i class="glyphicon glyphicon-inbox"></i> <%= fold.name %>
-                                  <% end %>
-                                </li>
-                                <% end %>
                               </ul>
                             </div>
                           <% end %>
-                          <% if user_signed_in? && sentence.user_id != current_user.id %>
-                            <% if @current_fold.user == current_user %>
-                              <div class="btn-group">
-                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-pencil"></i><span class="caret"></span></button>
-                                <ul class="dropdown-menu">
-                                  <li>
-                                    <%= link_to edit_sentence_path(id: sentence.id, fold_id: @current_fold.id ), method: :get do %>
-                                      <i class="glyphicon glyphicon-pencil"></i> Edit
-                                    <% end %>
-                                  </li>
-                                  <li>
-                                    <%= link_to sentence_fold_sentence_path(sentence_id: sentence.id, id: sentence.fold_sentences.where(fold_id: @current_fold.id).ids[0] ), method: :delete, remote: true do %>
-                                      <i class="glyphicon glyphicon-level-up"></i> Remove from this box
-                                    <% end %>
-                                  </li>
-                                </ul>
-                              </div>
-                            <% end %>
-                            <div class="btn-group">
-                              <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-download-alt"></i> Add<span class="caret"></span></button>
-                              <ul class="dropdown-menu">
-                                <% @myfolds.each do |fold| %>
-                                <li>
-                                  <%= link_to sentence_fold_sentences_path(sentence_id: sentence.id, fold_id: fold.id), method: :post, remote: true do %>
-                                    <%= fold.name %>
-                                  <% end %>
-                                </li>
+                          <div class="btn-group">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-download-alt"></i> Add<span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <% @myfolds.each do |fold| %>
+                              <li>
+                                <%= link_to sentence_fold_sentences_path(sentence_id: sentence.id, fold_id: fold.id), method: :post, remote: true do %>
+                                  <%= fold.name %>
                                 <% end %>
-                              </ul>
-                            </div>
-                          <% end %>
-                        </div>
+                              </li>
+                              <% end %>
+                            </ul>
+                          </div>
+                        <% end %>
                       </div>
                     </th>
                     </tr>

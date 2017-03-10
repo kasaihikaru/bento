@@ -7,10 +7,7 @@
     <meta name="description" content="短文・単語をみんなで共有しながら学ぶ英語学習サイトです。">
     <meta name="viewport" content="width=360,initial-scale=1">
     <title>BENTO English<%= yield :title %></title>
-<!--
-    ファビコンの設定
-    <link rel="icon" href="">
- -->
+    <link rel="icon" type="image/png" href="/assets/logo_transparent.png">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -56,7 +53,7 @@
 
     <footer>
       <p>
-        <img src="<%= asset_path "logo2.png" %>" />    Copyright(C) BENTO ALL RIGHT RESERVED   <img src="<%= asset_path "logo2.png" %>" />
+        <img src="<%= asset_path "logo_transparent.png" %>" />    Copyright(C) BENTO ALL RIGHT RESERVED   <img src="<%= asset_path "logo_transparent.png" %>" />
       </p>
     </footer>
   </body>
