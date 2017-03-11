@@ -10,6 +10,17 @@
 <!-- 新しい文 -->
       <% if user_signed_in? && current_user.id == @user.id %>
         <div class="wrapper-createsentence first-color">
+          <div class="fold-edit cleafix">
+            <%= form_for (@current_fold) do |f| %>
+              <h1><i class="glyphicon glyphicon-inbox"></i> <%= @current_fold.name %></h1>
+              <div class="for-right">
+                <%= f.text_field :name, class: "form-control newbox", :required => true %>
+                <%= button_tag( class: "btn btn-original") do %>
+                  Change Name
+                <% end %>
+              </div>
+            <% end %>
+          </div>
           <div class="create-newsentence">
             <%= form_for (@sentence) do |s| %>
               <div class="form-group">
@@ -29,7 +40,7 @@
                 <div id="auto-words" class="btn btn-default">
                   英単語を抜き出す
                 </div>
-                <a data-toggle="modal" href="#myModal" class="">(詳細)</a></p>
+                <a data-toggle="modal" href="#myModal" class="">(詳細)</a>
                 <div class="modal fade" id="myModal">
                   <div class="modal-dialog">
                     <div class="modal-content">

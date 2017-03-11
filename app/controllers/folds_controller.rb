@@ -30,11 +30,20 @@ class FoldsController < ApplicationController
   def create
     a = Fold.create(create_params)
     redirect_to fold_path(a.id)
-    # redirect_to user_path(current_user.id)
+  end
+
+  def update
+    fold = Fold.find(params[:id])
+    fold.update(update_params)
+    redirect_to fold_path(fold.id)
   end
 
   private
   def create_params
     params.require(:fold).permit(:name).merge(user_id: current_user.id)
+  end
+
+  def update_params
+    params.require(:fold).permit(:name)
   end
 end

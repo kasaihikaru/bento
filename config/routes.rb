@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :create] do
     resources :likes, only: [:index]
   end
-  resources :folds, only: [:show, :create]
+  resources :folds, only: [:show, :create, :update]
 
   resources :abouts, only: [:index] do
     collection do
