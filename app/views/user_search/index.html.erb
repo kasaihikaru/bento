@@ -42,7 +42,7 @@
         <div class="wrapper-profile">
           <div class="profile clearfix">
             <div class="p-name">
-              <%= user.nickname %>
+              <a href="/users/<%= user.id %>"><%= user.nickname %></a>
             </div>
             <% if user.avatar? %>
               <div class="p-img">

@@ -29,7 +29,19 @@
                 <div id="auto-words" class="btn btn-default">
                   英単語を抜き出す
                 </div>
-                <div class="jumptodetail"><a href="/abouts/auto">（詳細）</a></div>
+                <a data-toggle="modal" href="#myModal" class="">(詳細)</a></p>
+                <div class="modal fade" id="myModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <%= render :partial => "abouts/auto" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
 

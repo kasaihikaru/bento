@@ -7,10 +7,12 @@
           <li><a href="/users/<%= user.id %>"><i class="glyphicon glyphicon-user"></i> <%= user.nickname %>'s all</a></li>
         <% end %>
       <% if user_signed_in? && current_user.id == user.id %>
-        <% if @flag == 1  %>
-          <li class="selected"><a href="/users/<%= @user.id %>/likes"><i class="glyphicon glyphicon-heart"></i> Favorites </a><i class="glyphicon glyphicon-hand-left"></i></li>
-        <% else %>
-          <li><a href="/users/<%= @user.id %>/likes"><i class="glyphicon glyphicon-heart"></i> Favorites</a></li>
+        <% if user.likes.present? %>
+          <% if @flag == 1  %>
+            <li class="selected"><a href="/users/<%= @user.id %>/likes"><i class="glyphicon glyphicon-heart"></i> Favorites </a><i class="glyphicon glyphicon-hand-left"></i></li>
+          <% else %>
+            <li><a href="/users/<%= @user.id %>/likes"><i class="glyphicon glyphicon-heart"></i> Favorites</a></li>
+          <% end %>
         <% end %>
       <% end %>
     </ul>
