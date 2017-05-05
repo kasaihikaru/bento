@@ -16,6 +16,8 @@ check_client_connection false
 
 run_once = true
 
+pid File.expand_path('../../tmp/pids/unicorn.pid', __FILE__)
+
 before_fork do |server, worker|
   defined?(ActiveRecord::Base) &&
     ActiveRecord::Base.connection.disconnect!
