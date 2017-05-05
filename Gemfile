@@ -49,6 +49,10 @@ group :production, :staging do
   gem 'rails_12factor'
 end
 
+group :production do
+  gem 'unicorn'
+end
+
 
 gem 'pry-rails'
 gem 'devise'
