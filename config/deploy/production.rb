@@ -1,4 +1,4 @@
-server '<Elastic IP>', user: 'ec2-user', roles: %w{app db web}
+server '54.178.178.83', user: 'ec2-user', roles: %w{app db web}
 
 
 # server-based syntax
