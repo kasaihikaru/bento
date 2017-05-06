@@ -2,10 +2,15 @@ app_path = File.expand_path('../../', __FILE__)
 
 worker_processes 1
 
-working_directory "#{app_path}/current"
-pid "#{app_path}/shared/tmp/pids/unicorn.pid"
-stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
-stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
+# working_directory "#{app_path}/current"
+# pid "#{app_path}/shared/tmp/pids/unicorn.pid"
+# stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
+# stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
+
+working_directory "/var/www/bento/current"
+pid "/var/www/bento/shared/tmp/pids/unicorn.pid"
+stderr_path "/var/www/bento/shared/log/unicorn.stderr.log"
+stdout_path "/var/www/bento/shared/log/unicorn.stdout.log"
 
 listen 3000
 timeout 60
