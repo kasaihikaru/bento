@@ -138,7 +138,7 @@ body .first-color{
 
 
 .navbar-brand{
-  background: url("logo.png") no-repeat;
+  background: image-url("logo.png") no-repeat;
   background-size: contain;
   height: 95px;
   width: 300px;
@@ -162,7 +162,7 @@ body .first-color{
 //   position: relative;
 //   left: 50%;
 //   float: left;
-//   background: url("logo_transparent.png") no-repeat;
+//   background: image-url("logo_transparent.png") no-repeat;
 //   background-size: contain;
 //   height: 89px;
 //   width: 100px;
