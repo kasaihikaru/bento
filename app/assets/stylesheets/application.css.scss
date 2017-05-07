@@ -92,7 +92,7 @@ body .first-color{
 }
 @media screen and (min-width: 770px) {
   .chop{
-    background: url("chops.png") no-repeat;
+    background: image-url("chops.png") no-repeat;
     background-position: 0%;
     background-size: 700px;
     float: right;
