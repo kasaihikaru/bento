@@ -16,7 +16,6 @@
   background-color: #FF8000;
   margin-bottom: 10px;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px;
 }
 .mypage-user .selected a{
 
@@ -28,7 +27,6 @@
   background-color: #FF8000;
   margin-bottom: 10px;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px;
 }
 .mypage-menu ul{
   list-style: none;
@@ -62,38 +60,18 @@
   font-weight: bold;
 }
 
-// プロフィール
-.hasami{
+
+.attention-new-sentence{
+  text-align: center;
+  background-color: #FF311A;
+  width: 100%;
+  border-radius: 15px;
   margin-bottom: 15px;
-//   width: 100%;
-//   display: inline-block;
-//   position: relative;
-//   overflow: hidden; /* 不要部分を消す */
-//   padding: 6px; /* 6px だけは写真からはみ出す */
+  padding: 20px;
 }
-// .hasami:before, .test:after {
-//   content: "";
-//   position: absolute;
-//   z-index: 1;
-//   width: 97px;
-//   height: 50px;
-//   background: image-url("bboard.jpg") repeat;
-//   transform: rotate(-30deg);
-// }
-// .hasami:before {
-//   box-shadow: 0 10px 8px -12px rgba(0, 0, 0, 0.8);
-//   top: -24px;
-//   bottom: auto;
-//   right: auto;
-//   left: -26px;
-// }
-// .hasami:after {
-//   box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.7);
-//   top: auto;
-//   bottom: -22px;
-//   right: -25px;
-//   left: auto;
-// }
+
+
+// プロフィール
 .wrapper-profile{
   background: image-url("r2.jpg") no-repeat top center;
   background-color: #FFFFFF;
@@ -147,7 +125,6 @@
   background-size: 100% 100%;
   margin-bottom: 10px;
   border-radius: 15px;
-  box-shadow: 10px 10px 10px;
 }
 .create-newsentence{
   display: inline-block;

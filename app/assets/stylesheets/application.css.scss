@@ -28,6 +28,7 @@ body{
   background-color: white;
 }
 
+
 // 背景
 .contents {
   padding-top: 110px;
@@ -57,6 +58,7 @@ body .btn-original{
   background-color: #ec583a;
   color: white;
   font-weight: bold;
+  box-shadow: 1px 1px 1px black;
 }
 body .ten-radi{
   border-radius: 10px;
@@ -64,15 +66,36 @@ body .ten-radi{
 body .fift-radi{
   border-radius: 10px;
 }
-body .ten-shad{
-  box-shadow: 10px 10px 10px;
+body .four-shad{
+  box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+  -webkit-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+}
+body .one-shad{
+  box-shadow: 1px 1px 1px;
+}
+body .one-undershad{
+  box-shadow: 0px 3px 1px -1px rgba(0,0,0,0.6);
+  -webkit-box-shadow: 0px 3px 1px -1px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0px 3px 1px -1px rgba(0,0,0,0.6);
 }
 body .first-color{
   background-color: #F9A646;
 }
 
 
-
+// ナビの影調整
+@media screen and (min-width:10px) and (max-width: 767px) {
+  .media-shad{
+    box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+  }
+}
+@media screen and (min-width:768px) { 
+  .media-shad{
+  }
+}
 
 /*header-container*/
 .header-container{
@@ -82,7 +105,7 @@ body .first-color{
 
 
 // お箸、ハンバーガーメニューのボタン調整
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 767px) {
   .chop{
     background:transparent;
   }
@@ -90,7 +113,7 @@ body .first-color{
     margin: 0;
   }
 }
-@media screen and (min-width: 770px) {
+@media screen and (min-width: 768px) {
   .chop{
     background: image-url("chops.png") no-repeat;
     background-position: 0%;

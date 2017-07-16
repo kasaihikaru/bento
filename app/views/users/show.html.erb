@@ -7,8 +7,10 @@
 
     <div class="main col-xs-12 col-lg-10">
 <!-- プロフィール -->
-      <div class="hasami">
-      <div class="wrapper-profile">
+      <div class="one-shad attention-new-sentence">
+        新しい文章を作成したい場合、フォルダを作成して、各フォルダから行うことができます。
+      </div>
+      <div class="wrapper-profile one-shad">
         <div class="profile clearfix">
           <div class="p-name">
             <%= @user.nickname %>
@@ -39,7 +41,7 @@
           <% end %>
         </div>
       </div>
-      </div>
+
 
 
 <!-- タイムライン -->
@@ -47,7 +49,7 @@
         <% @sentences.each do |sentence| %>
           <div id="timeline-<%= sentence.id %>">
             <div class="post">
-              <div class="post-part">
+              <div class="post-part one-shad">
                 <table class="table table-bordered sentence-table">
                   <thead>
                     <tr class="warning">

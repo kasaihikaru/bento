@@ -9,7 +9,7 @@
     <div class="main col-xs-12 col-lg-10">
 <!-- 新しい文 -->
       <% if user_signed_in? && current_user.id == @user.id %>
-        <div class="wrapper-createsentence first-color">
+        <div class="wrapper-createsentence first-color one-shad">
           <div class="fold-edit cleafix">
             <%= form_for (@current_fold) do |f| %>
               <h1><i class="glyphicon glyphicon-inbox"></i> <%= @current_fold.name %></h1>
@@ -93,7 +93,7 @@
         <% @sentences.each do |sentence| %>
           <div id="timeline-<%= sentence.id %>">
             <div class="post">
-              <div class="post-part">
+              <div class="post-part one-shad">
                 <table class="table table-bordered sentence-table">
                   <thead>
                     <tr class="warning">

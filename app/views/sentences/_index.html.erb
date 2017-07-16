@@ -1,6 +1,6 @@
 <div class="container index-content">
   <div class="row">
-    <div class="menu first-color ten-radi ten-shad col-xs-12 col-lg-2">
+    <div class="menu first-color ten-radi one-shad col-xs-12 col-lg-2">
       <div class="wrapper">
         <div class="current-sentences">
           <p>現在のみんなの文</p>
@@ -14,7 +14,7 @@
           </ul>
         </div>
         <div class="search-menu">
-          <ul>
+          <ul class="one-undershad">
             <li>
               <%= form_tag('/search', method: :get) do %>
                 <input name="keyword" placeholder="英文を検索" type="text" value=""><button class="btn btn-original" title="検索" type="submit"><i class="glyphicon glyphicon-search"></i></button></input>
@@ -37,7 +37,7 @@
     <div class="main col-xs-12 col-lg-10">
       <% sentences.each do |sentence| %>
         <div class="post">
-          <div class="post-part">
+          <div class="post-part one-shad">
             <table class="table table-bordered sentence-table">
               <thead>
                 <tr class="warning">
