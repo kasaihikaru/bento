@@ -33,6 +33,7 @@ body{
 .contents {
   padding-top: 110px;
   background-color: #EEE4B7;
+  min-height: calc(100vh - 30px);
 }
 .main .post .post-part thead a{
   color: black;
