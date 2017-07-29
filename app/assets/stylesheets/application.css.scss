@@ -144,7 +144,7 @@ body .first-color{
 }
 @media screen and (min-width: 380px) {
   .header-container .navbar-nav li a{
-    padding: 15px 15px;
+    padding: 15px 3px;
   }
   .header-container .navbar-nav li{
     width: 100px;
@@ -204,7 +204,7 @@ body .first-color{
   border-radius: 5px;
   line-height: 90px;
   background: transparent;
-  font-size: 17px;
+  font-size: 15px;
   margin-left: 10px;
 }
 
@@ -212,10 +212,11 @@ body .first-color{
   color: black;
 }
 
+
 .nav li a:hover, .nav li a:focus{
   background-color: transparent;
   color: #6A4831;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .cv{
