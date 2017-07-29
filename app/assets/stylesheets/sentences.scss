@@ -6,14 +6,86 @@
 
 // 全体
 .index-content {
-    max-width: 1300px;
-    margin: 0 auto;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+
+// TOPでの説明
+.top-explanation{
+  margin: 20px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+.btn-cv{
+  background-color: #0080FF;
+  color: white;
+  font-weight: bold;
+  box-shadow: 1px 1px 1px black;
+  border-radius: 10px;
+}
+
+
+@media screen and (min-width:0px) {
+    /* for iPhone Landscape (iPhone 横)*/
+  .catch{
+    font-size: 15px;
+    margin: 10px 0;
+  }
+  .btn-word{
+    font-size: 10px;
+    padding: 20px 0;
+  }
+}
+@media screen and (min-width:600px)and ( max-width:768px) {
+    /* for iPhone Landscape (iPhone 横)*/
+  .catch{
+    font-size: 15px;
+    margin: 30px 0;
+  }
+  .btn-word{
+    font-size: 15px;
+    padding: 20px 0;
+  }
+}
+@media screen and (min-width:768px) and ( max-width:1024px) {
+    /* for iPad */
+  .catch{
+    font-size: 18px;
+    margin: 30px 0;
+  }
+  .btn-word{
+    font-size: 20px;
+    padding: 30px 0;
+  }
+}
+@media screen and (min-width:1024px) and ( max-width:1199px) {
+    /* for PC */
+  .catch{
+    font-size: 22px;
+    margin: 30px 0;
+  }
+  .btn-word{
+    font-size: 20px;
+    padding: 40px 0;
+  }
+}
+@media screen and (min-width:1200px) {
+    /* for PC */
+  .catch{
+    font-size: 30px;
+    margin: 30px 0;
+  }
+  .btn-word{
+    font-size: 25px;
+    padding: 50px 0;
+  }
 }
 
 
 // メニュー
 .menu {
-  // background-color: #FF8000;
   margin-bottom: 10px;
 }
 

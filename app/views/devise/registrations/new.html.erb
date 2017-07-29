@@ -1,8 +1,11 @@
 <% provide :title, " | 新規登録" %>
 
 <div class="container">
-  <div class="row col-xs-12">
-    <div class="devise-center">
+  <div class="row">
+    <div class="col-xs-0 col-md-7">
+    ffffff
+    </div>
+    <div class=" col-xs-12 col-md-5">
       <h2>新規登録</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -32,12 +35,12 @@
         </div><br>
 
         <div class="field">
-          <%= f.label :avatar, "プロフィール画像(後から追加できます)" %><br />
+          <%= f.label :avatar, "プロフィール画像" %><br />
           <%= f.file_field :avatar %>
         </div><br>
 
 
-        <div class="label"><%= f.label :blog, "ブログ、HP(後から追加できます)" %><br />
+        <div class="label"><%= f.label :blog, "ブログ、HP" %><br />
             <%= f.text_field :blog, placeholder: 'URL' %>
         </div><br><br>
 
@@ -45,7 +48,7 @@
             <%= f.text_area :introduction, placeholder: '学習の目標、意気込みなどを書いてみましょう！', maxlength: '50000' %>
         </div><br><br>
 
-        <a data-toggle="modal" href="#myModal" class="">(利用規約)</a></p>
+        <a data-toggle="modal" href="#myModal">(利用規約)</a></p>
         <div class="modal fade" id="myModal">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -124,31 +127,27 @@
             </div>
           </div>
         </div>
-
         <div class="actions">
           <%= f.submit "利用規約に同意して登録" %>
         </div>
       <% end %>
-      <p><i class="glyphicon glyphicon-arrow-down"></i>使い方の説明</p>
-      <br>
-
-      <div class="box col-xs-10 col-xs-push-1">
-        <div class="upper">
-          <h2>Get Started</h2>
-          <h1>始め方</h1>
-          <h3></h3>
-        </div>
-        <div class="lower">
-          <div class="row">
-            <div class="col-xs-12 col-sm-6 for-center-responsive get-started" >
-              <img alt="get started" src="<%= asset_path "about4.png" %>" >
-            </div>
-            <div class="col-xs-12 col-sm-6">
-              <h3>①ユーザー登録を終えたら、My BENTO(マイページ)へ</h3>
-              <h3>②ボックスを作成してみてください。</h3>
-              <h3>③ボックスの中で新しい文を作成できます。</h3>
-              <h3>④追加した文章が表示され、トップページのタイムラインでも全てのユーザーに公開されます。</h3>
-            </div>
+    </div>
+    <div class="box col-xs-10 col-xs-push-1">
+      <div class="upper">
+        <h2>Get Started</h2>
+        <h1>始め方</h1>
+        <h3></h3>
+      </div>
+      <div class="lower">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 for-center-responsive get-started" >
+            <img alt="get started" src="<%= asset_path "about4.png" %>" >
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <h3>①ユーザー登録を終えたら、My BENTO(マイページ)へ</h3>
+            <h3>②ボックスを作成してみてください。</h3>
+            <h3>③ボックスの中で新しい文を作成できます。</h3>
+            <h3>④追加した文章が表示され、トップページのタイムラインでも全てのユーザーに公開されます。</h3>
           </div>
         </div>
       </div>

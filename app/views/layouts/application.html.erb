@@ -4,7 +4,7 @@
     <meta charset="utf8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="短文・単語をみんなで共有しながら学ぶ英語学習サイトです。">
+    <meta name="description" content="短文・単語をみんなで共有する英語学習サイトです。">
     <meta name="viewport" content="width=360,initial-scale=1">
     <title>BENTO English<%= yield :title %></title>
     <link rel="icon" type="image/png" href="<%= asset_path "logo_transparent.png" %>">
@@ -44,13 +44,13 @@
           <div id="gnavi" class="four-shad collapse navbar-collapse">
             <div class="chop">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/abouts">About</a></li>
+              <li class="navi-word"><a href="/abouts">使い方</a></li>
               <% if user_signed_in? %>
-                <li><a href="/users/<%= current_user.id %>">MyBento</a></li>
-                <li><%= link_to 'Log-out', destroy_user_session_path, method: :delete %></li>
+                <li class="navi-word"><a href="/users/<%= current_user.id %>">MyBento</a></li>
+                <li class="navi-word"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
               <% else %>
-                  <li><%= link_to "Log-in", new_user_session_path, class: 'post' %></li>
-                  <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+                  <li class="navi-word"><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+                  <li class="cv"><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
               <% end %>
             </ul>
             </div>
